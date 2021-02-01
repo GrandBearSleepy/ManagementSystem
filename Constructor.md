@@ -1,0 +1,5 @@
+-login
+-404
+-admin
+  -client
+  -cleaner
