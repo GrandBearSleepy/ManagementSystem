@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
 import { adminRoutes } from '../../routes'
-import './frame.less';
+// import logo from './logo.png'
 import { withRouter } from 'react-router-dom';
+import './frame.less';
 
 
 const { SubMenu } = Menu;
@@ -21,8 +22,10 @@ class Frame extends Component {
   render() {
     return (
       <Layout style={{ minHeight: '100%' }}>
-        <Header className="header">
-          <div className="logo" />
+        <Header className="header mg-header">
+          <div className="mg-logo">
+            {/* <img src={logo} alt="" /> */}
+          </div>
         </Header>
         <Layout>
           <Sider width={200} className="site-layout-background">

@@ -6,4 +6,4 @@ const cleanerRouters = require('./cleaners');
 router.use('/customers', customerRoutes);
 router.use('/cleaners', cleanerRouters);
 
-module.exports = router;
+module.exports = router; 

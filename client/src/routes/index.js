@@ -3,7 +3,10 @@ import {
   Customer,
   NotFound,
   Login,
-  Work
+  Work,
+  Home,
+  InpuFormCus,
+  InpuFormCle
 } from '../pages';
 
 import {
@@ -12,7 +15,8 @@ import {
   MehOutlined,
   UsergroupAddOutlined,
   SolutionOutlined,
-  ReconciliationOutlined
+  ReconciliationOutlined,
+  HomeOutlined
 } from '@ant-design/icons';
 
 
@@ -29,16 +33,15 @@ export const mainRoutes = [
 
 export const adminRoutes = [
   {
-    // pathname: '/admin/home',
-    // component: Customer,
-    title: 'Customer',
-    icon: <UserOutlined />,
+    pathname: '/admin/home',
+    title: 'Home',
+    icon: <HomeOutlined />,
     subMenus: [
       {
         pathname: '/admin/home',
-        title: 'Add Customer',
-        icon: <UsergroupAddOutlined />,
-        component: Customer
+        title: 'Home',
+        icon: <HomeOutlined />,
+        component: Home
       }],
     isNav: true
   },
@@ -52,7 +55,7 @@ export const adminRoutes = [
         pathname: '/admin/customer/addNew',
         title: 'Add Customer',
         icon: <UsergroupAddOutlined />,
-        component: Customer
+        component: InpuFormCus
       },
       {
         pathname: '/admin/customer/viewAll',
@@ -72,7 +75,7 @@ export const adminRoutes = [
         pathname: '/admin/cleaner/addNew',
         title: 'Add Cleaner',
         icon: <UsergroupAddOutlined />,
-        component: Cleaner,
+        component: InpuFormCle,
       },
       {
         component: Cleaner,
