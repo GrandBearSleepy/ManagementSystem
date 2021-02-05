@@ -24,7 +24,7 @@ export default function Jobs() {
   const columns = [
     {
       title: 'Type',
-      dataIndex: ['job','type'],
+      dataIndex: ['job', 'type'],
     },
     {
       title: 'Description',
@@ -35,8 +35,15 @@ export default function Jobs() {
       dataIndex: 'fullName',
     },
     {
-      title: 'Cleaner Name',
+      title: 'Asigned',
       dataIndex: 'address',
+      render: function (address) {
+        if (address) {
+          return address
+        }
+        else return(<a>Asign to a cleaner</a>)
+
+      }
     },
 
   ];
