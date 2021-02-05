@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { DatePicker, Input, Form, Select, Button, InputNumber } from 'antd';
 import API from '../../../utils/API';
 import Header from '../Header';
+import moment from 'moment';
 
 import './index.css'
 
@@ -65,6 +66,12 @@ export default function Recurring() {
       onFinish={handleSave}
     >
       <Form.Item
+        rules={[
+          {
+            required: true,
+            message: "Please select a client",
+          },
+        ]}
         name="company">
         <Header
           clientList={clientData}
@@ -73,8 +80,18 @@ export default function Recurring() {
       </Form.Item>
 
       <h3>Job Start Date</h3>
-      <Form.Item name="date">
-        <DatePicker />
+      <Form.Item
+        rules={[
+          {
+            required: true,
+            message: "Please select a date",
+          },
+        ]}
+        name="date">
+        
+        <DatePicker
+          disabledDate={(current) => current && current < moment().endOf('day')}
+        />
       </Form.Item>
 
       <h3>Reapts</h3>

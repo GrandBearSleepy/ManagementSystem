@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import { DatePicker, Input, Form, Button, InputNumber } from 'antd';
 import API from '../../../utils/API';
 import Header from '../Header';
@@ -10,7 +11,7 @@ const { TextArea } = Input;
 
 export default function OneOff() {
 
-  const [select, setSelect] = useState({id:'', value: '' });
+  const [select, setSelect] = useState({ id: '', value: '' });
   const [clientData, setClientData] = useState([]);
   const [form] = Form.useForm();
 
@@ -54,8 +55,8 @@ export default function OneOff() {
         console.log(res)
       })
       .catch(err => {
-      console.log(err)
-    }
+        console.log(err)
+      }
       )
   }
 
@@ -66,18 +67,36 @@ export default function OneOff() {
       onFinish={handleSave}
     >
       <Form.Item
+        rules={[
+          {
+            required: true,
+            message: "Please select a client",
+          },
+        ]}
         name="company">
         <Header
           handleSelectChange={handleSelectChange}
           clientList={clientData} />
       </Form.Item>
       <h3>Job Date</h3>
-      <Form.Item name="date">
-        <DatePicker />
+      <Form.Item
+        name="date"
+        rules={[
+          {
+            required: true,
+            message: "Please select a date",
+          },
+        ]}
+      >
+        <DatePicker
+          disabledDate={(current) => current && current < moment().endOf('day')}
+        />
       </Form.Item>
       <h3>Price</h3>
       <Form.Item name="price">
-        <InputNumber min={0} max={10} step={0.1} />
+        <InputNumber
+          min={0} step={0.1}
+          placeholder="00.0" />
       </Form.Item>
       <h3>Job Description</h3>
       <Form.Item name="description">
