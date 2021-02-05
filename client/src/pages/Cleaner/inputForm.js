@@ -9,7 +9,7 @@ import {
   Col,
   Button,
   Card,
-  
+  message
 }
   from 'antd';
 
@@ -31,7 +31,7 @@ export default function InputForm() {
       lastName: value.lastName,
       address: value.street1
         + ' '
-        + value.street2
+        + (value.street2) ? value.street2:''
         + ' '
         + value.cityName
         + ' '
@@ -40,7 +40,7 @@ export default function InputForm() {
     console.log(newCustomer)
     API.saveCleaner(newCustomer)
       .then(res => {
-        alert('Success')
+        message.success('Saved')
       })
       .catch((err) => console.log(err.response))
     console.log(value)
@@ -50,6 +50,9 @@ export default function InputForm() {
       form={form}
       name="cleanerInfo"
       onFinish={handleSave}
+      initialValues={{
+        street2: ' '
+      }}
     >
       <div className="site-card-wrapper">
         <Row gutter={16}>
@@ -59,7 +62,6 @@ export default function InputForm() {
                 <Form.Item
                   name="title"
                   style={{ width: "16%" }}
-
                 >
                   <Select placeholder="Title">
                     <Select.Option value="Mr">Mr</Select.Option>

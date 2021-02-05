@@ -16,8 +16,8 @@ const customerSchema = new Schema({
     startDate: { type: Date },
     reapts: { type: String },
     description: { type: String },
-    price:{},
-    asigned:false
+    price: { type: Number },
+    asigned: false
   }
 });
 

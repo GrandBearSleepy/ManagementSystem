@@ -16,24 +16,23 @@ export default function Jobs() {
         console.log("Received data:")
         console.log(res.data)
         setJobData(res.data.map(x => ({ ...x, key: x._id })))
-        // console.log(cleanerData)
-
       }
       )
   }
+  // const {job} = jobData
 
   const columns = [
     {
       title: 'Type',
-      dataIndex: 'title',
+      dataIndex: ['job','type'],
     },
     {
       title: 'Description',
-      dataIndex: 'fullName',
+      dataIndex: ['job', 'description'],
     },
     {
       title: 'Client Name',
-      dataIndex: 'phone',
+      dataIndex: 'fullName',
     },
     {
       title: 'Cleaner Name',

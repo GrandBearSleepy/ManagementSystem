@@ -9,6 +9,7 @@ const { TextArea } = Input;
 
 export default function Recurring() {
 
+  const [select, setSelect] = useState({ id: '', value: '' });
   const [clientData, setClientData] = useState([]);
   const [form] = Form.useForm();
 
@@ -27,23 +28,33 @@ export default function Recurring() {
       .catch(err => { console.log(err) })
   }
 
+  function handleSelectChange(selected) {
+    // console.log(selected)
+    setSelect({
+      id: selected.key,
+      value: selected.label
+    })
+  }
 
 
   function handleSave(value) {
     const newJob = {
-      type: 'recurring',
-      startDate: value.date,
-      description: value.description,
-      price: value.price,
-      reapts: value.reapts
+      job:
+      {
+        type: 'Recurring',
+        startDate: value.date,
+        description: value.description,
+        price: value.price,
+        reapts: value.reapts
+      }
     }
     console.log(newJob)
-    API.saveCustomer(newJob)
+    API.updateCustomer(select.id, newJob)
       .then(res => {
-
+        console.log(res)
       })
       .catch((err) => console.log(err.response))
-    console.log(value)
+
   }
 
 
@@ -55,7 +66,10 @@ export default function Recurring() {
     >
       <Form.Item
         name="company">
-        <Header clientList={clientData} />
+        <Header
+          clientList={clientData}
+          handleSelectChange={handleSelectChange}
+        />
       </Form.Item>
 
       <h3>Job Start Date</h3>
@@ -83,7 +97,7 @@ export default function Recurring() {
 
       <h3>Price</h3>
       <Form.Item name="price">
-        <InputNumber min={0} max={10} step={0.1} />
+        <InputNumber min={0} step={0.1} />
       </Form.Item>
 
       <h3>Job Description</h3>

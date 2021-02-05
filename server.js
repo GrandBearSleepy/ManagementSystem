@@ -4,6 +4,8 @@ const routes = require('./routes');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 
+
+
 //require middleware
 
 app.use(express.urlencoded({ extended: true }));
@@ -15,6 +17,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(routes);
+
+mongoose.set('useFindAndModify', false);
 
 mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/managementDB");
 

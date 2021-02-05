@@ -6,16 +6,18 @@ const { Option } = Select;
 
 
 export default function Header(props) {
+  console.log(props)
 
-  const { clientList} =props
+  const { clientList, handleSelectChange} =props
 
   return (
     
     <div>
       <h2>Job for</h2>
         <Select
-        showSearch
-        style={{ width: 200 }}
+        labelInValue
+        onChange={handleSelectChange}
+        style={{ width: '50%'}}
         placeholder="Select a Client"
         optionFilterProp="children"
         filterOption={(input, option) =>
@@ -26,7 +28,7 @@ export default function Header(props) {
         {clientList.map(each => {
           return <Option
             key={each._id}
-            value={each.companyName}
+            value={each._id}
           >{each.companyName}</Option>
         })}
       </Select>

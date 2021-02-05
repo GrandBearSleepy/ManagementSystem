@@ -10,6 +10,7 @@ const { TextArea } = Input;
 
 export default function OneOff() {
 
+  const [select, setSelect] = useState({id:'', value: '' });
   const [clientData, setClientData] = useState([]);
   const [form] = Form.useForm();
 
@@ -28,35 +29,35 @@ export default function OneOff() {
       .catch(err => { console.log(err) })
   }
 
-
-
-
-  async function handleSave(value) {
-    console.log(value)
-    const newJob = {
-      companyName: value.company,
-      type: 'oneoff',
-      startDate: value.date,
-      description: value.description,
-      reapts: value.reapts,
-      price: value.price
-    }
-    console.log(newJob)
-
-    // await API.getCustomer()
-    //   .then(res => {
-    //     if (res.data) {
-    //       API.saveCustomer(newJob)
-    //         .then(res => {
-
-    //         })
-    //         .catch((err) => console.log(err.response))
-    //       console.log(value)
-    //     }
-    //   })
-
+  function handleSelectChange(selected) {
+    // console.log(selected)
+    setSelect({
+      id: selected.key,
+      value: selected.label
+    })
   }
 
+  function handleSave(value) {
+    console.log(value)
+    const newJob = {
+      job:
+      {
+        type: 'OneOff',
+        startDate: value.date,
+        description: value.description,
+        reapts: '',
+        price: value.price
+      }
+    }
+    API.updateCustomer(select.id, newJob)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+      console.log(err)
+    }
+      )
+  }
 
   return (
     <Form
@@ -66,7 +67,9 @@ export default function OneOff() {
     >
       <Form.Item
         name="company">
-        <Header clientList={clientData} />
+        <Header
+          handleSelectChange={handleSelectChange}
+          clientList={clientData} />
       </Form.Item>
       <h3>Job Date</h3>
       <Form.Item name="date">

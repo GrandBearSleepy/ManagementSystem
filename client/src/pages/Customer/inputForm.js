@@ -9,6 +9,7 @@ import {
   Col,
   Button,
   Card,
+  message
 }
   from 'antd';
 
@@ -38,12 +39,15 @@ export default function InputForm() {
         + ' '
         + value.cityName
         + ' '
-        + value.stateName
+        + value.stateName,
+      job: {}
     }
     console.log(newCustomer)
     API.saveCustomer(newCustomer)
       .then(res => {
-        alert('Success')
+        return (
+          message.success('Saved')
+        )
       })
       .catch((err) => console.log(err.response))
     console.log(value)
@@ -53,6 +57,9 @@ export default function InputForm() {
       form={form}
       name="customerInfo"
       onFinish={handleSave}
+      initialValues={{
+        street2: ' '
+      }}
     >
       <div className="site-card-wrapper">
         <Row gutter={16}>
@@ -144,7 +151,8 @@ export default function InputForm() {
                 name="street2"
                 style={{ width: "100%" }}
               >
-                <Input placeholder="Street2" />
+                <Input
+                  placeholder="Street2" />
               </Form.Item>
               <Row>
                 <Form.Item

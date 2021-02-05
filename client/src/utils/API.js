@@ -13,8 +13,8 @@ export default {
   deleteCustomer: function (id) {
     return axios.delete('/api/customers/' + id);
   },
-  updateCustomer: function (id) {
-    return axios.put('/api/customer/' + id)
+  updateCustomer: function (id, update) {
+    return axios.put('/api/customers/' + id, update)
   },
   // Saves a customer to the database
   saveCustomer: function (customerData) {
