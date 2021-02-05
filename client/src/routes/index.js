@@ -5,8 +5,9 @@ import {
   Login,
   Work,
   Home,
-  InpuFormCus,
-  InpuFormCle
+  InputFormCus,
+  InputFormCle,
+  InputFormJob
 } from '../pages';
 
 import {
@@ -16,7 +17,8 @@ import {
   UsergroupAddOutlined,
   SolutionOutlined,
   ReconciliationOutlined,
-  HomeOutlined
+  HomeOutlined,
+  FileAddOutlined
 } from '@ant-design/icons';
 
 
@@ -55,7 +57,7 @@ export const adminRoutes = [
         pathname: '/admin/customer/addNew',
         title: 'Add Customer',
         icon: <UsergroupAddOutlined />,
-        component: InpuFormCus
+        component: InputFormCus
       },
       {
         pathname: '/admin/customer/viewAll',
@@ -75,7 +77,7 @@ export const adminRoutes = [
         pathname: '/admin/cleaner/addNew',
         title: 'Add Cleaner',
         icon: <UsergroupAddOutlined />,
-        component: InpuFormCle,
+        component: InputFormCle,
       },
       {
         component: Cleaner,
@@ -86,13 +88,20 @@ export const adminRoutes = [
     isNav: true
   },
   {
-    pathname: '/admin/work',
+    pathname: '/admin/job',
     component: Work,
     title: 'Job',
     icon: <RestOutlined />,
     subMenus: [
       {
-        pathname: '/admin/work/viewAll',
+        pathname: '/admin/job/newJob',
+        title: 'Add New Job',
+        component: InputFormJob,
+        icon: <FileAddOutlined />
+
+      },
+      {
+        pathname: '/admin/job/viewAll',
         title: 'View All',
         component: Work,
         icon: <ReconciliationOutlined />

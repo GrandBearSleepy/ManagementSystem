@@ -1,0 +1,14 @@
+textarea.ant-input {
+    max-width: 45%;
+}
+
+.ant-picker{
+  width: 30%;
+}
+
+.ant-select{
+  width: 30%;
+}
+.ant-form-item-control-input{
+  width: 30%;
+}

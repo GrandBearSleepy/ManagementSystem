@@ -8,20 +8,29 @@ import {
   Row,
   Col,
   Button,
-  Card
+  Card,
 }
   from 'antd';
 
 
-export default function inputForm() {
+
+export default function InputForm() {
+
+  const [form] = Form.useForm();
+  const onReset = () => {
+    form.resetFields();
+  };
+
 
   function handleSave(value) {
     const newCustomer = {
-      contactPerson: {
-        title: value.title,
-        firstName: value.firstName,
-        lastName: value.lastName,
-      },
+      title: value.title,
+      firstName: value.firstName,
+      lastName: value.lastName,
+      fullName: (value.firstName || value.lastName) ?
+        value.firstName + ' ' + value.lastName : value.company,
+      contactNum: value.phone,
+      email: value.email,
       companyName: value.company,
       address: value.street1
         + ' '
@@ -34,13 +43,14 @@ export default function inputForm() {
     console.log(newCustomer)
     API.saveCustomer(newCustomer)
       .then(res => {
-        console.log(res)
+        alert('Success')
       })
       .catch((err) => console.log(err.response))
     console.log(value)
   }
   return (
     <Form
+      form={form}
       name="customerInfo"
       onFinish={handleSave}
     >
@@ -77,6 +87,7 @@ export default function inputForm() {
               </Row>
               <Row>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input company name' }]}
                   name="company"
                   style={{ width: "100%" }}
                 >
@@ -87,6 +98,13 @@ export default function inputForm() {
                 <Form.Item
                   name="phone"
                   style={{ width: "100%" }}
+                  rules={[
+                    {
+                      required: true,
+                      pattern: /^(?:\d*)$/,
+                      message: "Please input a correct phone number",
+                    },
+                  ]}
                 >
                   <Input placeholder="Phone Number" />
                 </Form.Item>
@@ -95,6 +113,16 @@ export default function inputForm() {
                 <Form.Item
                   name="email"
                   style={{ width: "100%" }}
+                  rules={[
+                    {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
+                    },
+                    {
+                      required: true,
+                      message: 'Please input your E-mail!',
+                    },
+                  ]}
                 >
                   <Input placeholder="Email" />
                 </Form.Item>
@@ -105,12 +133,14 @@ export default function inputForm() {
             <Card title="Address" bordered={true}>
 
               <Form.Item
+                rules={[{ required: true, message: 'Please input street number' }]}
                 name="street1"
                 style={{ width: "100%" }}
               >
                 <Input placeholder="Street1" />
               </Form.Item>
               <Form.Item
+
                 name="street2"
                 style={{ width: "100%" }}
               >
@@ -118,6 +148,7 @@ export default function inputForm() {
               </Form.Item>
               <Row>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input City Name!' }]}
                   name="cityName"
                   style={{ width: "50%" }}
                 >
@@ -126,6 +157,8 @@ export default function inputForm() {
                   </Col>
                 </Form.Item>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input State' }]}
+
                   name="stateName"
                   style={{ width: "50%" }}
                 >
@@ -141,12 +174,16 @@ export default function inputForm() {
       <Row>
         <Form.Item >
           <Button
-            className="savetBtn"
-            type="primary"
+            className="ant-btn ant-btn-primary"
             htmlType="submit"
             size={'middle'}>
             Save
           </Button>
+        </Form.Item>
+        <Form.Item >
+          <Button htmlType="button" onClick={onReset}>
+            Reset
+        </Button>
         </Form.Item>
       </Row>
     </Form>

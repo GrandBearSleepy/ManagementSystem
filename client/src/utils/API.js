@@ -13,6 +13,9 @@ export default {
   deleteCustomer: function (id) {
     return axios.delete('/api/customers/' + id);
   },
+  updateCustomer: function (id) {
+    return axios.put('/api/customer/' + id)
+  },
   // Saves a customer to the database
   saveCustomer: function (customerData) {
     return axios.post('/api/customers', customerData);

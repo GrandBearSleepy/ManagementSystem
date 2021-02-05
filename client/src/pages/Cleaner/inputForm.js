@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import './inputForm.css';
 import API from '../../utils/API'
 import {
@@ -8,18 +8,25 @@ import {
   Row,
   Col,
   Button,
-  Card
+  Card,
+  
 }
   from 'antd';
 
 
-export default function inputForm() {
+export default function InputForm() {
+
+  const [form] = Form.useForm();
+  const onReset = () => {
+    form.resetFields();
+  };
 
   function handleSave(value) {
     const newCustomer = {
       phone: value.mobile,
       email: value.email,
       title: value.title,
+      fullName: value.firstName + ' ' + value.lastName,
       firstName: value.firstName,
       lastName: value.lastName,
       address: value.street1
@@ -33,13 +40,14 @@ export default function inputForm() {
     console.log(newCustomer)
     API.saveCleaner(newCustomer)
       .then(res => {
-        console.log(res)
+        alert('Success')
       })
       .catch((err) => console.log(err.response))
     console.log(value)
   }
   return (
     <Form
+      form={form}
       name="cleanerInfo"
       onFinish={handleSave}
     >
@@ -51,6 +59,7 @@ export default function inputForm() {
                 <Form.Item
                   name="title"
                   style={{ width: "16%" }}
+
                 >
                   <Select placeholder="Title">
                     <Select.Option value="Mr">Mr</Select.Option>
@@ -58,6 +67,7 @@ export default function inputForm() {
                   </Select>
                 </Form.Item>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input First Name!' }]}
                   name="firstName"
                   style={{ width: "42%" }}
                 >
@@ -66,8 +76,10 @@ export default function inputForm() {
                   </Col>
                 </Form.Item>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input Last Name!' }]}
                   name="lastName"
                   style={{ width: "42%" }}
+
                 >
                   <Col >
                     <Input placeholder="Last Name" />
@@ -78,6 +90,14 @@ export default function inputForm() {
                 <Form.Item
                   name="mobile"
                   style={{ width: "100%" }}
+                  rules={[
+                    {
+                      required:true,
+                      pattern: /^(?:\d*)$/,
+                      message: "Please input a correct mobile number",
+                    },
+                  ]}
+                
                 >
                   <Input placeholder="Mobile Number" />
                 </Form.Item>
@@ -86,6 +106,16 @@ export default function inputForm() {
                 <Form.Item
                   name="email"
                   style={{ width: "100%" }}
+                  rules={[
+                    {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
+                    },
+                    {
+                      required: true,
+                      message: 'Please input E-mail!',
+                    },
+                  ]}
                 >
                   <Input placeholder="Email" />
                 </Form.Item>
@@ -98,6 +128,7 @@ export default function inputForm() {
               <Form.Item
                 name="street1"
                 style={{ width: "100%" }}
+                rules={[{ required: true, message: 'Please input street number' }]}
               >
                 <Input placeholder="Street1" />
               </Form.Item>
@@ -109,6 +140,7 @@ export default function inputForm() {
               </Form.Item>
               <Row>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input City Name!' }]}
                   name="cityName"
                   style={{ width: "50%" }}
                 >
@@ -117,6 +149,7 @@ export default function inputForm() {
                   </Col>
                 </Form.Item>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input State' }]}
                   name="stateName"
                   style={{ width: "50%" }}
                 >
@@ -138,6 +171,9 @@ export default function inputForm() {
             size={'middle'}>
             Save
           </Button>
+          <Button htmlType="button" onClick={onReset}>
+            Reset
+        </Button>
         </Form.Item>
       </Row>
     </Form>

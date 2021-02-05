@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Table, Space } from 'antd';
-import API from '../../utils/API'
+import { Card, Button, Table, Space, Row, Popconfirm } from 'antd';
+import API from '../../utils/API';
+
 
 export default function Customer() {
-  const [customerData, setCustomerData] = useState([]);
 
+  const [customerData, setCustomerData] = useState([]);
 
   useEffect(() => {
     loadCustomers()
@@ -17,6 +18,23 @@ export default function Customer() {
         setCustomerData(res.data.map(x => ({ ...x, key: x._id })))
       }
       )
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+
+
+  function handleDelete(id) {
+    API.deleteCustomer(id)
+      .then(
+        res => {
+          loadCustomers();
+        }
+      )
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   const columns = [
@@ -25,17 +43,35 @@ export default function Customer() {
       dataIndex: 'companyName',
     },
     {
+      title: 'Contact Person',
+      dataIndex: 'fullName',
+    },
+    {
       title: 'Address',
       dataIndex: 'address',
+    },
+    {
+      title: 'Phone',
+      dataIndex: 'contactNum',
     },
     {
       title: 'Email',
       dataIndex: 'email',
     },
     {
-      title: 'Phone',
-      dataIndex: 'phone',
-    },
+      title: 'Action',
+      key: 'operation',
+      fixed: 'right',
+      width: 100,
+      render: (text, record) => (
+        <Space size="middle">
+          <a >Edit</a>
+          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+            <a>Delete</a>
+          </Popconfirm>
+        </Space>
+      ),
+    }
   ];
 
   return (
@@ -43,6 +79,8 @@ export default function Customer() {
     <Card title="Customers List"
       extra={<Button>DoSome</Button>} >
       <Table
+        scroll={{ x: 1500 }}
+        sticky
         dataSource={customerData}
         columns={columns}
       />;

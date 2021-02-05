@@ -25,12 +25,16 @@ const Home = Loadable({
   loader: () => import('./Home'),
   loading: Loading
 })
-const InpuFormCus = Loadable({
+const InputFormCus = Loadable({
   loader: () => import('./Customer/inputForm'),
   loading: Loading
 })
-const InpuFormCle = Loadable({
+const InputFormCle = Loadable({
   loader: () => import('./Cleaner/inputForm'),
+  loading: Loading
+})
+const InputFormJob = Loadable({
+  loader: () => import('./Work/inputForm'),
   loading: Loading
 })
 export {
@@ -40,6 +44,7 @@ export {
   Login,
   Work,
   Home,
-  InpuFormCus,
-  InpuFormCle
+  InputFormCus,
+  InputFormCle,
+  InputFormJob
 }
