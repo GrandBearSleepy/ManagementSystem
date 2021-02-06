@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Table } from 'antd';
+import { Card, Button, Table, Modal } from 'antd';
 import API from '../../utils/API'
+import ModalList from './ModalList'
 
 export default function Jobs() {
 
   const [jobData, setJobData] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   useEffect(() => {
     getJobData()
@@ -35,11 +49,11 @@ export default function Jobs() {
     {
       title: 'Assigned',
       dataIndex: 'cleaner',
-      render: function (address) {
-        if (address) {
-          return address
+      render: function (fullName) {
+        if (fullName) {
+          return fullName
         }
-        else return (<a>Assign to a cleaner</a>)
+        else return (<ModalList jobdata={jobData}/>)
       }
     },
 

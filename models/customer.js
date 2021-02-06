@@ -17,8 +17,13 @@ const customerSchema = new Schema({
     reapts: { type: String },
     description: { type: String },
     price: { type: Number },
-    asigned: false
+    asigned: false,
+    cleaner: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Cleaner'
+    }]
   }
+  
 });
 
 const Customer = mongoose.model('Customer', customerSchema);

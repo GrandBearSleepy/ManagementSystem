@@ -65,9 +65,9 @@ export default function Customer() {
       width: 100,
       render: (text, record) => (
         <Space size="middle">
-          <a >Edit</a>
+          <Button type="link" info>Edit</Button>
           <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
-            <a>Delete</a>
+            <Button type="link" danger>Delete</Button>
           </Popconfirm>
         </Space>
       ),

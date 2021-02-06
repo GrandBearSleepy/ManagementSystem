@@ -22,15 +22,17 @@ class Frame extends Component {
   render() {
     return (
       <Layout style={{ minHeight: '100%' }}>
-        <Header className="header mg-header">
-          <div className="mg-logo">
-            {/* <img src={logo} alt="" /> */}
-          </div>
-          <Button
-          style={{float:'right',marginTop:'30px'}}>Logout</Button>
-        </Header>
-        <Layout>
-          <Sider width={200} className="site-layout-background">
+          <Sider
+            breakpoint="lg"
+            collapsedWidth="0"
+            onBreakpoint={broken => {
+              console.log(broken);
+            }}
+            onCollapse={(collapsed, type) => {
+              console.log(collapsed, type);
+            }}
+        >
+          <div className="logo" />
             <Menu
               onClick={this.menuOnClick}
               mode="inline"
@@ -52,8 +54,15 @@ class Frame extends Component {
                 })
               }
             </Menu>
-          </Sider>
-          <Layout style={{ padding: '16px' }}>
+        </Sider>
+        <Layout>
+        <Header className="header mg-header">
+          <div className="mg-logo">
+            {/* <img src={logo} alt="" /> */}
+          </div>
+          <Button
+            style={{ float: 'right', marginTop: '30px' }}>Logout</Button>
+        </Header>
             <Content
               className="site-layout-background"
               style={{
@@ -66,7 +75,6 @@ class Frame extends Component {
             </Content>
           </Layout>
         </Layout>
-      </Layout >
     )
   }
 
