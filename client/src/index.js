@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-
 import { mainRoutes } from './routes';
-import './index.css'
+import './index.css';
+
 
 
 ReactDOM.render(
+
   <Router>
     <Switch>
       <Route path='/admin' render={(routerProps) => {
@@ -22,7 +23,7 @@ ReactDOM.render(
             component={route.component} />
         })
       }
-      <Redirect to='/login' from='/' exact />
+      <Redirect to='/admin' from='/' exact />
       <Redirect to='/404' />
     </Switch>
   </Router>,

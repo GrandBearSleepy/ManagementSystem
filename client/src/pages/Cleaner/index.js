@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button, Table, Space, Popconfirm } from 'antd';
 import API from '../../utils/API'
 
@@ -31,7 +31,7 @@ export default function Cleaner() {
       .catch(err => {
         console.log(err)
       })
-   }
+  }
 
   const columns = [
     {
@@ -61,9 +61,9 @@ export default function Cleaner() {
       width: 100,
       render: (text, record) => (
         <Space size="middle">
-          <a >Edit</a>
+          <Button type="link" info>Edit</Button>
           <Popconfirm title="Sure to delete?" onConfirm={() => handlerDelete(record.key)}>
-            <a>Delete</a>
+            <Button type="link" danger>Delete</Button>
           </Popconfirm>
         </Space>
       ),
