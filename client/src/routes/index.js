@@ -35,17 +35,19 @@ export const mainRoutes = [
 
 export const adminRoutes = [
   {
-    pathname: '/admin/home',
+    pathname: '/admin',
     title: 'Home',
     icon: <HomeOutlined />,
     subMenus: [
       {
-        pathname: '/admin/home',
-        title: 'Home',
+        pathname: '/admin',
+        title: 'Dashboard',
         icon: <HomeOutlined />,
-        component: Home
+        component: Home,
+        exact: true
       }],
-    isNav: true
+    isNav: true,
+    exact: true
   },
   {
     pathname: '/admin/customer',

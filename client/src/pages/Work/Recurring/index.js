@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DatePicker, Input, Form, Select, Button, InputNumber } from 'antd';
+import { DatePicker, Input, Form, Select, Button, InputNumber, message } from 'antd';
 import API from '../../../utils/API';
 import Header from '../Header';
 import moment from 'moment';
@@ -52,7 +52,7 @@ export default function Recurring() {
     console.log(newJob)
     API.updateCustomer(select.id, newJob)
       .then(res => {
-        console.log(res)
+        message.success('Saved')
       })
       .catch((err) => console.log(err.response))
 

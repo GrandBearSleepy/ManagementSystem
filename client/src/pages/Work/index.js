@@ -19,8 +19,6 @@ export default function Jobs() {
       }
       )
   }
-  // const {job} = jobData
-
   const columns = [
     {
       title: 'Type',
@@ -35,14 +33,13 @@ export default function Jobs() {
       dataIndex: 'fullName',
     },
     {
-      title: 'Asigned',
-      dataIndex: 'address',
+      title: 'Assigned',
+      dataIndex: 'cleaner',
       render: function (address) {
         if (address) {
           return address
         }
-        else return(<a>Asign to a cleaner</a>)
-
+        else return (<a>Assign to a cleaner</a>)
       }
     },
 
@@ -50,8 +47,7 @@ export default function Jobs() {
 
 
   return (
-    <Card title="Cleaner List"
-      extra={<Button>DoSome</Button>} >
+    <Card title="Job List">
       <Table dataSource={jobData} columns={columns} />;
     </Card>
   )

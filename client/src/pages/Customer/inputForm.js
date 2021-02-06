@@ -28,11 +28,10 @@ export default function InputForm() {
       title: value.title,
       firstName: value.firstName,
       lastName: value.lastName,
-      fullName: (value.firstName || value.lastName) ?
-        value.firstName + ' ' + value.lastName : value.company,
+      fullName: value.firstName + ' ' + value.lastName,
       contactNum: value.phone,
       email: value.email,
-      companyName: value.company,
+      companyName: (value.company) ? value.company : (value.firstName + ' ' + value.lastName),
       address: value.street1
         + ' '
         + value.street2
@@ -78,12 +77,14 @@ export default function InputForm() {
                 <Form.Item
                   name="firstName"
                   style={{ width: "42%" }}
+                  rules={[{ required: true, message: 'Please input First Name!' }]}
                 >
                   <Col >
                     <Input placeholder="First Name" />
                   </Col>
                 </Form.Item>
                 <Form.Item
+                  rules={[{ required: true, message: 'Please input Last Name!' }]}
                   name="lastName"
                   style={{ width: "42%" }}
                 >

@@ -17,6 +17,7 @@ const App = () => {
           merged.map(route => {
             return (
               <Route
+                exact={route.exact}
                 key={route.pathname}
                 path={route.pathname}
                 render={(routerProps) => {

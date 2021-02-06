@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Button } from 'antd';
 import { adminRoutes } from '../../routes'
 // import logo from './logo.png'
 import { withRouter } from 'react-router-dom';
@@ -26,6 +26,8 @@ class Frame extends Component {
           <div className="mg-logo">
             {/* <img src={logo} alt="" /> */}
           </div>
+          <Button
+          style={{float:'right',marginTop:'30px'}}>Logout</Button>
         </Header>
         <Layout>
           <Sider width={200} className="site-layout-background">

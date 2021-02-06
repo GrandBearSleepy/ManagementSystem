@@ -22,7 +22,7 @@ ReactDOM.render(
             component={route.component} />
         })
       }
-      <Redirect to='/admin' from='/' exact />
+      <Redirect to='/login' from='/' exact />
       <Redirect to='/404' />
     </Switch>
   </Router>,
