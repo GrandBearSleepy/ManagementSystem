@@ -3,6 +3,7 @@ import { Card, Form } from 'antd';
 import Header from './Header'
 import Reccuring from './Recurring';
 import OneOff from './OneOff'
+import './inputForm.css'
 
 const tabList = [
   {
@@ -35,7 +36,7 @@ class InputForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="job">
         {/* <Header /> */}
         <Card
           style={{ width: '100%' }}

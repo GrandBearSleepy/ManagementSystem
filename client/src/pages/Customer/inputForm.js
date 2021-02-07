@@ -60,7 +60,7 @@ export default function InputForm() {
         street2: ' '
       }}
     >
-      <div className="site-card-wrapper">
+      <div className="site-card-wrapper customer">
         <Row gutter={16}>
           <Col span={8}>
             <Card title="New Customer" bordered={true}>
@@ -139,22 +139,24 @@ export default function InputForm() {
           </Col>
           <Col span={8}>
             <Card title="Address" bordered={true}>
-
-              <Form.Item
-                rules={[{ required: true, message: 'Please input street number' }]}
-                name="street1"
-                style={{ width: "100%" }}
-              >
-                <Input placeholder="Street1" />
-              </Form.Item>
-              <Form.Item
-
-                name="street2"
-                style={{ width: "100%" }}
-              >
-                <Input
-                  placeholder="Street2" />
-              </Form.Item>
+              <Row>
+                <Form.Item
+                  rules={[{ required: true, message: 'Please input street number' }]}
+                  name="street1"
+                  style={{ width: "100%" }}
+                >
+                  <Input placeholder="Street1" />
+                </Form.Item>
+              </Row>
+              <Row>
+                <Form.Item
+                  name="street2"
+                  style={{ width: "100%" }}
+                >
+                  <Input
+                    placeholder="Street2" />
+                </Form.Item>
+              </Row>
               <Row>
                 <Form.Item
                   rules={[{ required: true, message: 'Please input City Name!' }]}
@@ -167,7 +169,6 @@ export default function InputForm() {
                 </Form.Item>
                 <Form.Item
                   rules={[{ required: true, message: 'Please input State' }]}
-
                   name="stateName"
                   style={{ width: "50%" }}
                 >
@@ -179,22 +180,23 @@ export default function InputForm() {
             </Card>
           </Col>
         </Row>
-      </div>
-      <Row>
-        <Form.Item >
-          <Button
-            className="ant-btn ant-btn-primary"
-            htmlType="submit"
-            size={'middle'}>
-            Save
+        <Row className="buttons">
+          <Form.Item >
+            <Button
+              className="ant-btn ant-btn-primary"
+              htmlType="submit"
+              size={'middle'}>
+              Save
           </Button>
-        </Form.Item>
-        <Form.Item >
-          <Button htmlType="button" onClick={onReset}>
-            Reset
+          </Form.Item>
+          <Form.Item >
+            <Button htmlType="button" onClick={onReset}>
+              Reset
         </Button>
-        </Form.Item>
-      </Row>
+          </Form.Item>
+        </Row>
+      </div>
+     
     </Form>
   )
 }

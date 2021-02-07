@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './inputForm.css';
+import './inputForm.css';
 import API from '../../utils/API'
 import {
   Form,
@@ -54,7 +54,7 @@ export default function InputForm() {
         street2: ' '
       }}
     >
-      <div className="site-card-wrapper">
+      <div className="site-card-wrapper cleaner">
         <Row gutter={16}>
           <Col span={8}>
             <Card title="New Cleaner" bordered={true}>
@@ -163,21 +163,21 @@ export default function InputForm() {
             </Card>
           </Col>
         </Row>
-      </div>
-      <Row>
-        <Form.Item >
-          <Button
-            className="savetBtn"
-            type="primary"
-            htmlType="submit"
-            size={'middle'}>
-            Save
+        <Row className="buttons">
+          <Form.Item >
+            <Button
+              className="savetBtn"
+              type="primary"
+              htmlType="submit"
+              size={'middle'}>
+              Save
           </Button>
-          <Button htmlType="button" onClick={onReset}>
-            Reset
+            <Button htmlType="button" onClick={onReset}>
+              Reset
         </Button>
-        </Form.Item>
-      </Row>
+          </Form.Item>
+        </Row>
+      </div>
     </Form>
   )
 }
