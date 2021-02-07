@@ -14,7 +14,11 @@
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
 }
-.job h2, .job h3{
+.job h2{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+.job h3{
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
@@ -25,4 +29,18 @@
 
 .job{
   width: 85%;
+}
+.job .ant-tabs-tab-btn{
+  font-size: 20px;
+}
+
+.job .ant-card{
+  box-shadow: 8px 8px 5px #888888;
+}
+
+.job button.ant-btn{
+  box-shadow: 5px 5px 5px #888888;
+  margin-left: 8px;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
 }

@@ -43,7 +43,7 @@ export default function Work() {
         </Col>
         <Col span={8}>
           <Card
-            className="job" title="Jobs" bordered={false}>
+            className="job-card" title="Jobs" bordered={false}>
             <List
               size="large"
               header={<div>Header</div>}

@@ -4,27 +4,27 @@
   background: #ececec;
 }
 
-.customer .ant-card-head{
+.customer-form .ant-card-head{
   font-size: 24px;
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
   background-color: #424e56;
 }
-.customer .ant-card-body{
+.customer-form .ant-card-body{
   background-color: #f4f4f4;
 }
-.customer .buttons{
+.customer-form .buttons{
   margin-left: -8px; margin-right: -8px; row-gap: 0px;
   
 }
 
-.customer button.ant-btn{
+.customer-form button.ant-btn{
   box-shadow: 5px 5px 5px #888888;
   margin-left: 8px;
   margin-top: 10px;
   font-family: 'Poppins', sans-serif;
 }
 
-.customer .ant-card{
+.customer-form .ant-card{
   box-shadow: 8px 8px 5px #888888;
 }

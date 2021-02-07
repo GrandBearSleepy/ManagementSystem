@@ -7,7 +7,7 @@ background-color: #364d79;
   transition: all 0.3s ease;
 }
 
-.job{
+.job-card{
   background-color: #7db00e;
   color:#fff;
   font-family: 'Poppins', sans-serif;
@@ -24,7 +24,7 @@ background-color: #364d79;
   box-shadow: 10px 10px 5px #888888;
   transition: all 0.3s ease;
 }
-.job:hover{
+.job-card:hover{
   transform: perspective(1px) scale(1.05);
   cursor: pointer;
 }
@@ -41,7 +41,7 @@ background-color: #364d79;
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
 }
-.job .ant-card-head-title{
+.job-card .ant-card-head-title{
   font-size: 36px;
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
@@ -51,12 +51,3 @@ background-color: #364d79;
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
 }
-/* .ant-card{
-   margin: 15px;
-    box-shadow: 10px 10px 5px #888888;
-    transition: all 0.3s ease;
-}
-.ant-card:hover{
-  transform: perspective(1px) scale(1.05);
-    cursor: pointer;
-} */

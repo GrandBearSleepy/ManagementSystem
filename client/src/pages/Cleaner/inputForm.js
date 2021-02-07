@@ -54,7 +54,7 @@ export default function InputForm() {
         street2: ' '
       }}
     >
-      <div className="site-card-wrapper cleaner">
+      <div className="site-card-wrapper cleaner-form">
         <Row gutter={16}>
           <Col span={8}>
             <Card title="New Cleaner" bordered={true}>

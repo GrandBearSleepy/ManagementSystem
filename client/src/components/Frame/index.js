@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Button } from 'antd';
-import { adminRoutes } from '../../routes'
-// import logo from './logo.png'
+import { Layout, Menu, Button,Row } from 'antd';
+import { adminRoutes } from '../../routes';
+import { BankOutlined,BarcodeOutlined } from '@ant-design/icons'
 import { withRouter } from 'react-router-dom';
 import './frame.less';
 
@@ -32,7 +32,14 @@ class Frame extends Component {
               console.log(collapsed, type);
             }}
         >
-          <div className="logo" />
+          <div className="logo">  
+            <Row>
+              <BarcodeOutlined /><BarcodeOutlined /><span className="welcome">Welcome</span> 
+            </Row>
+            <Row><span className="manage">Management</span></Row>
+            
+          </div>
+          
             <Menu
               onClick={this.menuOnClick}
               mode="inline"
@@ -57,9 +64,6 @@ class Frame extends Component {
         </Sider>
         <Layout>
         <Header className="header mg-header">
-          <div className="mg-logo">
-            {/* <img src={logo} alt="" /> */}
-          </div>
           <Button
             style={{ float: 'right', marginTop: '30px' }}>Logout</Button>
         </Header>

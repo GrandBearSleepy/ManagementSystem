@@ -60,7 +60,7 @@ export default function InputForm() {
         street2: ' '
       }}
     >
-      <div className="site-card-wrapper customer">
+      <div className="site-card-wrapper customer-form">
         <Row gutter={16}>
           <Col span={8}>
             <Card title="New Customer" bordered={true}>

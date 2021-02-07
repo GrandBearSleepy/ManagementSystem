@@ -1,28 +1,28 @@
-.cleaner .site-card-border-less-wrapper {
+.cleaner-form .site-card-border-less-wrapper {
   padding: 30px;
   background: #ececec;
 }
 
-.cleaner .ant-card-head{
+.cleaner-form .ant-card-head{
   font-size: 24px;
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
   background-color: #424e56;
 }
-.cleaner .ant-card-body{
+.cleaner-form .ant-card-body{
   background-color: #f4f4f4;
 }
-.cleaner .buttons{
+.cleaner-form .buttons{
   margin-left: -8px; margin-right: -8px; row-gap: 0px;
 }
 
-.cleaner button.ant-btn{
+.cleaner-form button.ant-btn{
   margin-left: 8px;
   margin-top: 10px;
   font-family: 'Poppins', sans-serif;
   box-shadow: 5px 5px 5px #888888;
 }
 
-.cleaner .ant-card{
+.cleaner-form .ant-card{
   box-shadow: 8px 8px 5px #888888;
 }
