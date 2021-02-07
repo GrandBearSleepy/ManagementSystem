@@ -1,3 +1,62 @@
 .client{
 background-color: #364d79;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 15px;
+  box-shadow: 10px 10px 5px #888888;
+  transition: all 0.3s ease;
 }
+
+.job{
+  background-color: #7db00e;
+  color:#fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 15px;
+  box-shadow: 10px 10px 5px #888888;
+  transition: all 0.3s ease;
+}
+
+.cleaner{
+  background-color: #b36096;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 15px;
+  box-shadow: 10px 10px 5px #888888;
+  transition: all 0.3s ease;
+}
+.job:hover{
+  transform: perspective(1px) scale(1.05);
+  cursor: pointer;
+}
+.client:hover{
+  transform: perspective(1px) scale(1.05);
+  cursor: pointer;
+}
+.cleaner:hover{
+  transform: perspective(1px) scale(1.05);
+  cursor: pointer;
+}
+.client .ant-card-head-title{
+  font-size: 36px;
+  color:#fff;
+  font-family: 'Ubuntu',sans-serif;
+}
+.job .ant-card-head-title{
+  font-size: 36px;
+  color:#fff;
+  font-family: 'Ubuntu',sans-serif;
+}
+.cleaner .ant-card-head-title{
+  font-size: 36px;
+  color:#fff;
+  font-family: 'Ubuntu',sans-serif;
+}
+/* .ant-card{
+   margin: 15px;
+    box-shadow: 10px 10px 5px #888888;
+    transition: all 0.3s ease;
+}
+.ant-card:hover{
+  transform: perspective(1px) scale(1.05);
+    cursor: pointer;
+} */
