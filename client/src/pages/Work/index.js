@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button, Table, Modal } from 'antd';
 import API from '../../utils/API'
 import ModalList from './ModalList'
+import './index.css'
 
 export default function Jobs() {
 
@@ -61,7 +62,9 @@ export default function Jobs() {
 
 
   return (
-    <Card title="Job List">
+    <Card
+      className="jobs"
+      title="Job List">
       <Table dataSource={jobData} columns={columns} />;
     </Card>
   )

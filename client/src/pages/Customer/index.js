@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Table, Space, Row, Popconfirm } from 'antd';
 import API from '../../utils/API';
+import './index.css'
 
 
 export default function Customer() {
@@ -39,22 +40,27 @@ export default function Customer() {
 
   const columns = [
     {
+      width:'150px',
       title: 'Company',
       dataIndex: 'companyName',
     },
     {
+      width: '100px',
       title: 'Contact Person',
       dataIndex: 'fullName',
     },
     {
+      width: '200px',
       title: 'Address',
       dataIndex: 'address',
     },
     {
+      width: '80px',
       title: 'Phone',
       dataIndex: 'contactNum',
     },
     {
+      width: '100px',
       title: 'Email',
       dataIndex: 'email',
     },
@@ -76,8 +82,10 @@ export default function Customer() {
 
   return (
     // <div>test</div>
-    <Card title="Customers List"
-      extra={<Button>DoSome</Button>} >
+    <Card
+      className="customer"
+      title="Customers List"
+      >
       <Table
         scroll={{ x: 1500 }}
         sticky

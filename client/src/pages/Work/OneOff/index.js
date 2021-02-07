@@ -61,7 +61,7 @@ export default function OneOff() {
   }
 
   return (
-    <Form
+    <Form className="one-off"
       form={form}
       name="jobInfo"
       onFinish={handleSave}
@@ -88,7 +88,7 @@ export default function OneOff() {
           },
         ]}
       >
-        <DatePicker
+        <DatePicker className="data"
           disabledDate={(current) => current && current < moment().endOf('day')}
         />
       </Form.Item>
@@ -100,7 +100,7 @@ export default function OneOff() {
       </Form.Item>
       <h3>Job Description</h3>
       <Form.Item name="description">
-        <TextArea rows={5} />
+        <TextArea rows={5} className="text"/>
       </Form.Item>
       <Form.Item >
         <Button

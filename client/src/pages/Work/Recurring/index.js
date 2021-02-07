@@ -60,7 +60,7 @@ export default function Recurring() {
 
 
   return (
-    <Form
+    <Form className="recurring"
       form={form}
       name="jobInfo"
       onFinish={handleSave}
@@ -90,13 +90,16 @@ export default function Recurring() {
         name="date">
         
         <DatePicker
+          className="data"
           disabledDate={(current) => current && current < moment().endOf('day')}
         />
       </Form.Item>
 
       <h3>Reapts</h3>
       <Form.Item name="reapts">
-        <Select placeholder="Weekly on weekend">
+        <Select
+          className="reapts"
+          placeholder="Weekly on weekend">
           <Select.Option
             value="Weekly on weekend">
             Weekly on weekend
@@ -119,7 +122,7 @@ export default function Recurring() {
 
       <h3>Job Description</h3>
       <Form.Item name="description">
-        <TextArea rows={5} />
+        <TextArea rows={5} className="text"/>
       </Form.Item>
       <Form.Item >
         <Button

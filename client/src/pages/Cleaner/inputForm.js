@@ -166,8 +166,7 @@ export default function InputForm() {
         <Row className="buttons">
           <Form.Item >
             <Button
-              className="savetBtn"
-              type="primary"
+              className="ant-btn ant-btn-primary"
               htmlType="submit"
               size={'middle'}>
               Save

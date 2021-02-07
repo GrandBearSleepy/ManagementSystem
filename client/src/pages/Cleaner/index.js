@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Table, Space, Popconfirm } from 'antd';
-import API from '../../utils/API'
+import API from '../../utils/API';
+import './index.css'
 
 export default function Cleaner() {
 
@@ -35,22 +36,27 @@ export default function Cleaner() {
 
   const columns = [
     {
+      width: '50px',
       title: 'Title',
       dataIndex: 'title',
     },
     {
+      width: '100px',
       title: 'Name',
       dataIndex: 'fullName',
     },
     {
+      width: '80px',
       title: 'Phone',
       dataIndex: 'phone',
     },
     {
+      width: '200px',
       title: 'Address',
       dataIndex: 'address',
     },
     {
+      width: '100px',
       title: 'Email',
       dataIndex: 'email',
     },
@@ -72,8 +78,10 @@ export default function Cleaner() {
 
 
   return (
-    <Card title="Cleaner List"
-      extra={<Button>DoSome</Button>} >
+    <Card
+      className="cleaners"
+      title="Cleaner List"
+       >
       <Table
         scroll={{ x: 1500 }}
         sticky

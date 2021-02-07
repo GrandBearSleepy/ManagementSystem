@@ -22,3 +22,7 @@
 .job .ant-card-body{
   background-color: #f4f4f4;
 }
+
+.job{
+  width: 85%;
+}

@@ -45,7 +45,7 @@ export default function ModalList(props) {
   return (
     <>
       <Button type="link" onClick={showModal}>
-        Assign to cleaner
+        Assign
       </Button>
       <Modal
         title="Title"

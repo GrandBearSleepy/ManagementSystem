@@ -1,7 +1,7 @@
-textarea.ant-input {
-    max-width: 45%;
+.one-off .data{
+  width: 30%;
 }
 
-.ant-picker{
+.one-off .text{
   width: 30%;
 }

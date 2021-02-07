@@ -1,12 +1,12 @@
-.cleaners .ant-card-head{
+.customer .ant-card-head{
   font-size: 24px;
   background-color: #424e56 ;
   color: rgb(220,220,220) ;
   font-family: 'Ubuntu',sans-serif;
 }
-.cleaners .ant-table-thead > tr >th{
+.customer .ant-table-thead > tr >th{
   color: white;
-  background: #b36096 !important;
+  background: #3071b9 !important;
   font-family: 'Poppins', sans-serif;
 }
 

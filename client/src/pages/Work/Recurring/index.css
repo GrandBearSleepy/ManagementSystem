@@ -1,14 +1,11 @@
-textarea.ant-input {
-    max-width: 45%;
+.recurring .reapts{
+  width: 100%;
 }
 
-.ant-picker{
+.recurring .data{
   width: 30%;
 }
 
-.ant-select{
-  width: 30%;
-}
-.ant-form-item-control-input{
+.recurring .text{
   width: 30%;
 }

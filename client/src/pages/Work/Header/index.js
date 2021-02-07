@@ -17,7 +17,7 @@ export default function Header(props) {
       <Select
         labelInValue
         onChange={handleSelectChange}
-        style={{ width: '50%' }}
+        style={{ width: '30%' }}
         placeholder="Select a Client"
         optionFilterProp="children"
         filterOption={(input, option) =>
