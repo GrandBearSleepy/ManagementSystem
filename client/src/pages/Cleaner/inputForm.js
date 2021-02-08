@@ -1,16 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './inputForm.css';
 import API from '../../utils/API'
-import {
-  Form,
-  Input,
-  Select,
-  Row,
-  Col,
-  Button,
-  Card,
-  message
-}
+import { Form, Input, Select, Row, Col, Button, Card, message }
   from 'antd';
 
 
@@ -31,7 +22,7 @@ export default function InputForm() {
       lastName: value.lastName,
       address: value.street1
         + ' '
-        + (value.street2) ? value.street2:''
+        + (value.street2) ? value.street2 : ''
         + ' '
         + value.cityName
         + ' '
@@ -57,10 +48,10 @@ export default function InputForm() {
       <div className="site-card-wrapper cleaner-form">
         <Row gutter={16}>
           <Col
-          
+
             xs={24} md={8} lg={8}>
             <Card
-              
+
               title="New Cleaner" bordered={true}>
               <Row className="contactName">
                 <Form.Item
@@ -98,12 +89,12 @@ export default function InputForm() {
                   style={{ width: "100%" }}
                   rules={[
                     {
-                      required:true,
+                      required: true,
                       pattern: /^(?:\d*)$/,
                       message: "Please input a correct mobile number",
                     },
                   ]}
-                
+
                 >
                   <Input placeholder="Mobile Number" />
                 </Form.Item>
@@ -129,9 +120,9 @@ export default function InputForm() {
             </Card>
           </Col>
           <Col
-            xs={24} md={ 8}lg={8}>
+            xs={24} md={8} lg={8}>
             <Card
-              
+
               title="Address" bordered={true}>
 
               <Form.Item

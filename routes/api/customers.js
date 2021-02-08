@@ -12,4 +12,8 @@ router
   .put(customersController.update)
   .delete(customersController.remove);
 
+router
+  .route('/job/:id')
+  .post(customersController.addJob)
+
 module.exports = router;

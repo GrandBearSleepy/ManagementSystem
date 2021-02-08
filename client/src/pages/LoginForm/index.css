@@ -10,7 +10,7 @@
 
 
 .login button{
-  margin-top: 8px;
+  margin-top: 12px;
   font-family: 'Poppins', sans-serif;
   box-shadow: 5px 5px 5px #888888;
 }
@@ -18,4 +18,14 @@
 .login .password{
   margin-bottom: 0;
   
+}
+.login .ant-card-head{
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  background-color: #424e56;
+}
+.login {
+  box-shadow: 5px 5px 5px #888888;
 }

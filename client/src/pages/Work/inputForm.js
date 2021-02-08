@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Form } from 'antd';
-import Header from './Header'
+import { Card } from 'antd';
 import Reccuring from './Recurring';
 import OneOff from './OneOff'
 import './inputForm.css'

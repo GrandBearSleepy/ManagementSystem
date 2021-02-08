@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Input, Button, Card, Alert } from 'antd';
 import { UserOutlined, LockOutlined, } from '@ant-design/icons';
 import './index.css'
@@ -7,20 +7,16 @@ import './index.css'
 
 export default function LoginForm(props) {
 
-  console.log(props)
+  // console.log(props)
   // console.log(test)
-  const [userInfo, setUserInfo] = useState({ username: '', password: '' })
+
  
   // const isLogin = useContext(IsLogin)
 
-  const user = {
-    userName: 'admin',
-    password: 'admin123'
-  }
 
 
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    // console.log('Received values of form: ', values);
     props.inputInfo(values)
   };
 
@@ -55,7 +51,7 @@ export default function LoginForm(props) {
             placeholder="Password"
           />
         </Form.Item>
-        {(props.error != '') ? (<Alert message={props.error} type="error" showIcon />):''}
+        {(props.error !== '') ? (<Alert message={props.error} type="error" showIcon />):''}
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in

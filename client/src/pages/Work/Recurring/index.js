@@ -30,7 +30,7 @@ export default function Recurring() {
   }
 
   function handleSelectChange(selected) {
-    // console.log(selected)
+    console.log(selected)
     setSelect({
       id: selected.key,
       value: selected.label
@@ -40,19 +40,18 @@ export default function Recurring() {
 
   function handleSave(value) {
     const newJob = {
-      job:
-      {
-        type: 'Recurring',
-        startDate: value.date,
-        description: value.description,
-        price: value.price,
-        reapts: value.reapts
-      }
+      type: 'Recurring',
+      startDate: value.date,
+      description: value.description,
+      price: value.price,
+      reapts: value.reapts,
+      asigned: false
     }
-    console.log(newJob)
-    API.updateCustomer(select.id, newJob)
+    API.saveJob(newJob)
       .then(res => {
         message.success('Saved')
+        console.log(res.data)
+        API.addJobToCustomer(select.id, res.data._id)
       })
       .catch((err) => console.log(err.response))
 
@@ -66,12 +65,7 @@ export default function Recurring() {
       onFinish={handleSave}
     >
       <Form.Item
-        rules={[
-          {
-            required: true,
-            message: "Please select a client",
-          },
-        ]}
+
         name="company">
         <Header
           clientList={clientData}
@@ -88,7 +82,7 @@ export default function Recurring() {
           },
         ]}
         name="date">
-        
+
         <DatePicker
           className="data"
           disabledDate={(current) => current && current < moment().endOf('day')}
@@ -122,7 +116,7 @@ export default function Recurring() {
 
       <h3>Job Description</h3>
       <Form.Item name="description">
-        <TextArea rows={5} className="text"/>
+        <TextArea rows={5} className="text" />
       </Form.Item>
       <Form.Item >
         <Button

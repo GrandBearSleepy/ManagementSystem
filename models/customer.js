@@ -11,19 +11,12 @@ const customerSchema = new Schema({
   lastName: { type: String },
   fullName: { type: String },
   email: { type: String },
-  job: {
-    type: { type: String },
-    startDate: { type: Date },
-    reapts: { type: String },
-    description: { type: String },
-    price: { type: Number },
-    asigned: false,
-    cleaner: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Cleaner'
-    }]
-  }
-  
+  job: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: 'Job'
+    }
+  ]
 });
 
 const Customer = mongoose.model('Customer', customerSchema);

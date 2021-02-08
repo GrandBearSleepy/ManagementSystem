@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import { DatePicker, Input, Form, Button, InputNumber } from 'antd';
+import { DatePicker, Input, Form, Button, InputNumber, message } from 'antd';
 import API from '../../../utils/API';
 import Header from '../Header';
 import './index.css'
@@ -39,25 +39,22 @@ export default function OneOff() {
   }
 
   function handleSave(value) {
-    console.log(value)
     const newJob = {
-      job:
-      {
-        type: 'OneOff',
-        startDate: value.date,
-        description: value.description,
-        reapts: '',
-        price: value.price
-      }
+      type: 'One-Off',
+      startDate: value.date,
+      description: value.description,
+      price: value.price,
+      reapts: value.reapts
     }
-    API.updateCustomer(select.id, newJob)
+    console.log(newJob)
+    API.saveJob(newJob)
       .then(res => {
-        console.log(res)
+        message.success('Saved')
+        console.log(res.data)
+        API.addJobToCustomer(select.id, res.data._id)
       })
-      .catch(err => {
-        console.log(err)
-      }
-      )
+      .catch((err) => console.log(err.response))
+
   }
 
   return (
@@ -67,12 +64,6 @@ export default function OneOff() {
       onFinish={handleSave}
     >
       <Form.Item
-        rules={[
-          {
-            required: true,
-            message: "Please select a client",
-          },
-        ]}
         name="company">
         <Header
           handleSelectChange={handleSelectChange}
@@ -100,7 +91,7 @@ export default function OneOff() {
       </Form.Item>
       <h3>Job Description</h3>
       <Form.Item name="description">
-        <TextArea rows={5} className="text"/>
+        <TextArea rows={5} className="text" />
       </Form.Item>
       <Form.Item >
         <Button

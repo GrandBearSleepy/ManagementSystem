@@ -9,7 +9,10 @@ const cleanerSchema = new Schema({
   phone: { type: Number },
   email: { type: String },
   address: { type: String },
-
+  job: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Job'
+  }]
 });
 
 const Cleaner = mongoose.model('Cleaner', cleanerSchema);

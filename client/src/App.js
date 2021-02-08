@@ -39,7 +39,7 @@ const App = () => {
     <div className="app">
 
       {
-        (user != '') ?
+        (user !== '') ?
           (<Frame logout={logout}>
             <Switch>
               {

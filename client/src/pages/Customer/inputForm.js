@@ -25,6 +25,7 @@ export default function InputForm() {
 
   function handleSave(value) {
     const newCustomer = {
+      
       title: value.title,
       firstName: value.firstName,
       lastName: value.lastName,
@@ -39,7 +40,6 @@ export default function InputForm() {
         + value.cityName
         + ' '
         + value.stateName,
-      job: {}
     }
     console.log(newCustomer)
     API.saveCustomer(newCustomer)

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Table, Modal } from 'antd';
+import { Card, Table, Popconfirm, Space, Button} from 'antd';
 import API from '../../utils/API'
 import ModalList from './ModalList'
 import './index.css'
@@ -21,12 +21,13 @@ export default function Jobs() {
     setIsModalVisible(false);
   };
 
+
   useEffect(() => {
     getJobData()
   }, []);
 
   function getJobData() {
-    API.getCustomers()
+    API.getJobs()
       .then(res => {
         console.log("Received data:")
         console.log(res.data)
@@ -34,30 +35,54 @@ export default function Jobs() {
       }
       )
   }
+  function handleDelete(id) {
+    API.deleteJob(id)
+      .then(
+        res => {
+          getJobData();
+        }
+      )
+      .catch(err => {
+        console.log(err)
+      })
+  }
   const columns = [
     {
       title: 'Type',
-      dataIndex: ['job', 'type'],
+      dataIndex: 'type',
     },
     {
       title: 'Description',
-      dataIndex: ['job', 'description'],
+      dataIndex: 'description',
     },
-    {
-      title: 'Client Name',
-      dataIndex: 'fullName',
-    },
+    // {
+    //   title: 'Client Name',
+    //   dataIndex: 'fullName',
+    // },
     {
       title: 'Assigned',
       dataIndex: 'cleaner',
-      render: function (fullName) {
-        if (fullName) {
-          return fullName
+      render: function (assigned) {
+        if (assigned) {
+          return 'assigned'
         }
         else return (<ModalList
-          jobdata={jobData} />)
+          jobdata={jobData.job} />)
       }
     },
+    {
+      title: 'Action',
+      key: 'operation',
+      fixed: 'right',
+      width: 100,
+      render: (text, record) => (
+        <Space size="middle">
+          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+            <Button type="link" danger>Delete</Button>
+          </Popconfirm>
+        </Space>
+      ),
+    }
 
   ];
 

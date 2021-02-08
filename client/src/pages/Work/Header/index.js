@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Select, Button, Tooltip } from 'antd';
+import React from 'react';
+import { Select} from 'antd';
 
 
 const { Option } = Select;
@@ -19,11 +19,6 @@ export default function Header(props) {
         onChange={handleSelectChange}
         style={{ width: '30%' }}
         placeholder="Select a Client"
-        optionFilterProp="children"
-        filterOption={(input, option) =>
-          option.toLowerCase().indexOf(input.toLowerCase()) >= 0
-        }
-
       >
         {clientList.map(each => {
           return <Option
