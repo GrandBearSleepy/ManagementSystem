@@ -26,3 +26,10 @@
 .cleaner-form .ant-card{
   box-shadow: 8px 8px 5px #888888;
 }
+
+@media (max-width:1150px){
+  .cleaner{
+    display: inline-block;
+    width: 100%;
+  }
+}

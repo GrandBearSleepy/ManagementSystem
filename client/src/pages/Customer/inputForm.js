@@ -62,7 +62,7 @@ export default function InputForm() {
     >
       <div className="site-card-wrapper customer-form">
         <Row gutter={16}>
-          <Col span={8}>
+          <Col xs={24} md={8} lg={8}>
             <Card title="New Customer" bordered={true}>
               <Row className="contactName">
                 <Form.Item
@@ -137,7 +137,7 @@ export default function InputForm() {
               </Row>
             </Card>
           </Col>
-          <Col span={8}>
+          <Col xs={24} md={8} lg={8}>
             <Card title="Address" bordered={true}>
               <Row>
                 <Form.Item

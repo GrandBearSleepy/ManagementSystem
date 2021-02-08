@@ -56,8 +56,12 @@ export default function InputForm() {
     >
       <div className="site-card-wrapper cleaner-form">
         <Row gutter={16}>
-          <Col span={8}>
-            <Card title="New Cleaner" bordered={true}>
+          <Col
+          
+            xs={24} md={8} lg={8}>
+            <Card
+              
+              title="New Cleaner" bordered={true}>
               <Row className="contactName">
                 <Form.Item
                   name="title"
@@ -124,8 +128,11 @@ export default function InputForm() {
               </Row>
             </Card>
           </Col>
-          <Col span={8}>
-            <Card title="Address" bordered={true}>
+          <Col
+            xs={24} md={ 8}lg={8}>
+            <Card
+              
+              title="Address" bordered={true}>
 
               <Form.Item
                 name="street1"

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Button, Row } from 'antd';
 import { adminRoutes } from '../../routes';
-import { BankOutlined, BarcodeOutlined } from '@ant-design/icons'
 import { withRouter } from 'react-router-dom';
+import Logo from '../Logo'
 import './frame.less';
 
 
@@ -36,13 +36,7 @@ menuOnClick = ({ key }) => {
           console.log(collapsed, type);
         }}
       >
-        <div className="logo">
-          <Row>
-            <BarcodeOutlined /><BarcodeOutlined /><span className="welcome">Welcome</span>
-          </Row>
-          <Row><span className="manage">Management</span></Row>
-
-        </div>
+        <Logo/>
 
         <Menu
           onClick={this.menuOnClick}
@@ -68,7 +62,8 @@ menuOnClick = ({ key }) => {
       </Sider>
       <Layout>
         <Header className="header mg-header">
-          <Button
+          <Button 
+            className='logout'
             onClick={logout}
             style={{ float: 'right', marginTop: '30px' }}>Logout</Button>
         </Header>

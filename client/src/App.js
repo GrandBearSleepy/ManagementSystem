@@ -1,6 +1,6 @@
 import './App.less';
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch,Redirect } from 'react-router-dom';
 import { Frame } from './components'
 import LoginForm from './pages/LoginForm'
 import { adminRoutes } from './routes';
@@ -36,7 +36,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="app">
 
       {
         (user != '') ?
@@ -55,6 +55,7 @@ const App = () => {
                   )
                 })
               }
+              <Redirect to='/404' />
             </Switch>
           </Frame >) :
           (<LoginForm
