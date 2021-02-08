@@ -54,7 +54,8 @@ export default function Jobs() {
         if (fullName) {
           return fullName
         }
-        else return (<ModalList jobdata={jobData}/>)
+        else return (<ModalList
+          jobdata={jobData} />)
       }
     },
 

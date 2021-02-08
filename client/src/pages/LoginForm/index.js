@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Checkbox, Card, message } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
+import { Form, Input, Button, Card, Alert } from 'antd';
+import { UserOutlined, LockOutlined, } from '@ant-design/icons';
 import './index.css'
 
-export default function Login() {
+
+
+export default function LoginForm(props) {
+
+  console.log(props)
+  // console.log(test)
+  const [userInfo, setUserInfo] = useState({ username: '', password: '' })
+ 
+  // const isLogin = useContext(IsLogin)
+
   const user = {
     userName: 'admin',
     password: 'admin123'
   }
 
-  const [loginInfo, setIsLogin] = useState({ isLogin: false, message: '' })
-  const [userInfo, setUserInfo] = useState({ userName: '', password: '' })
 
-
-  const onFinish = (values: any) => {
+  const onFinish = (values) => {
     console.log('Received values of form: ', values);
-    setUserInfo(values)
+    props.inputInfo(values)
   };
 
-  function passport() {
-    if (user.userName === userInfo.userName || user.password === userInfo.password) {
-      setIsLogin({ isLogin: true, message: 'Success' })
-    }
-    else setIsLogin({ isLogin: false, message: 'Try again' })
-  }
 
-  console.log(userInfo)
+  // console.log(userInfo)
   return (
+
     <Card
       title='Management Login'
       className='login'
@@ -45,6 +45,7 @@ export default function Login() {
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
         </Form.Item>
         <Form.Item
+          className="password"
           name="password"
           rules={[{ required: true, message: 'Please input your Password!' }]}
         >
@@ -54,7 +55,7 @@ export default function Login() {
             placeholder="Password"
           />
         </Form.Item>
-
+        {(props.error != '') ? (<Alert message={props.error} type="error" showIcon />):''}
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in

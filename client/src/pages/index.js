@@ -10,7 +10,7 @@ const Customer = Loadable({
   loading: Loading
 })
 const Login = Loadable({
-  loader: () => import('./Login'),
+  loader: () => import('./LoginForm'),
   loading: Loading
 })
 const NotFound = Loadable({

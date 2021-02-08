@@ -8,9 +8,16 @@
   color: white;
   background: #b36096 !important;
   font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 
 .cleaners .ant-table-wrapper{
   box-shadow: 10px 10px 5px #888888
 }
+
+
+.cleaners .ant-table-tbody >tr >td{
+font-family: 'Poppins', sans-serif;
+font-weight: 450;
+} 

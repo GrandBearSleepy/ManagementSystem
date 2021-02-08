@@ -8,8 +8,14 @@
   color: white;
   background: #7db00e !important;
   font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 .jobs .ant-table-wrapper{
   box-shadow: 10px 10px 5px #888888
 }
+
+.jobs .ant-table-tbody >tr >td{
+font-family: 'Poppins', sans-serif;
+font-weight: 450;
+} 

@@ -7,3 +7,12 @@
   transform: translate3d(-50%,-50%,0);
   margin-top: -70px;
 }
+
+
+.login button{
+  margin-top: 8px;
+}
+
+.login .password{
+  margin-bottom: 0;
+}

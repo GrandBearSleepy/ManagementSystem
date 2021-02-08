@@ -16,6 +16,7 @@ export default function ModalList(props) {
   }, []);
 
   const showModal = () => {
+    console.log(props)
     setVisible(true);
   };
 
