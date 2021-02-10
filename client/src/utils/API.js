@@ -41,21 +41,28 @@ export default {
   getJobs: function () {
     return axios.get('/api/jobs');
   },
-  // Gets the customer with the given id
+  // Gets the job with the given id
   getJob: function (id) {
     return axios.get('/api/jobs/' + id);
   },
-  // Deletes the customer with the given id
+  updateJob: function (id, update) {
+    return axios.put('/api/jobs/' + id, update)
+  },
+  // Deletes the job with the given id
   deleteJob: function (id) {
     return axios.delete('/api/jobs/' + id);
   },
-  // Saves a customer to the database
+  // Saves a job to the database
   saveJob: function (customerData) {
     return axios.post('/api/jobs', customerData);
   },
   addJobToCustomer: function (customerId, jobId) {
     console.log("Attempting to add job" + jobId + " to customer " + customerId)
     return axios.post('/api/customers/job/' + customerId, { jobId })
+  },
+  addJobToCleaner: function (cleanerId, jobId) {
+    console.log("Attempting to add job" + jobId + " to cleaner " + cleanerId)
+    return axios.post('/api/cleaners/job/' + cleanerId, { jobId })
   }
 };
 

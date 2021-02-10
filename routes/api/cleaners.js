@@ -12,4 +12,8 @@ router
   .put(cleanersController.update)
   .delete(cleanersController.remove);
 
+router
+  .route('/job/:id')
+  .post(cleanersController.addJob)
+
 module.exports = router;

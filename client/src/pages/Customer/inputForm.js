@@ -95,7 +95,6 @@ export default function InputForm() {
               </Row>
               <Row>
                 <Form.Item
-                  rules={[{ required: true, message: 'Please input company name' }]}
                   name="company"
                   style={{ width: "100%" }}
                 >

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Modal, Button } from 'antd';
+import { Modal, Button, message } from 'antd';
 import API from '../../../utils/API';
 import Selection from './Selection';
 
@@ -16,13 +16,26 @@ export default function ModalList(props) {
   }, []);
 
   const showModal = () => {
-    console.log(props)
     setVisible(true);
   };
 
   const handleOk = () => {
-    // setConfirmLoading(true);
-    // API.updateCustomer
+    const { jobId } = props
+    API.addJobToCleaner(selectId.id, jobId)
+      .then(res => {
+        message.success('Assigned')
+        API.updateJob(jobId, { assigned: true })
+          .then(res =>
+            setVisible(false)
+          )
+          .catch(err => {
+            console.log(err)
+          })
+      }
+      )
+      .catch(err => {
+        console.log(err)
+      })
   };
 
   const handleCancel = () => {
@@ -49,7 +62,7 @@ export default function ModalList(props) {
         Assign
       </Button>
       <Modal
-        title="Title"
+        title="Cleaner List"
         visible={visible}
         onOk={handleOk}
         confirmLoading={confirmLoading}

@@ -13,16 +13,12 @@ export default function Slection(props) {
   return (
 
     <div>
-      <h2>Job for</h2>
+      <h2>Assign</h2>
       <Select
         labelInValue
         onChange={handleSelectChange}
         style={{ width: '50%' }}
-        placeholder="Select a Client"
-        optionFilterProp="children"
-        filterOption={(input, option) =>
-          option.toLowerCase().indexOf(input.toLowerCase()) >= 0
-        }
+        placeholder="Select a Cleaner"
 
       >
         {cleanerList.map(each => {

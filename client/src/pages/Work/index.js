@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Table, Popconfirm, Space, Button} from 'antd';
+import { Card, Table, Popconfirm, Space, Button } from 'antd';
 import API from '../../utils/API'
 import ModalList from './ModalList'
 import './index.css'
@@ -55,19 +55,18 @@ export default function Jobs() {
       title: 'Description',
       dataIndex: 'description',
     },
-    // {
-    //   title: 'Client Name',
-    //   dataIndex: 'fullName',
-    // },
     {
-      title: 'Assigned',
-      dataIndex: 'cleaner',
-      render: function (assigned) {
-        if (assigned) {
-          return 'assigned'
+      title: 'Price',
+      dataIndex: 'price',
+    },
+    {
+      title: 'Assign',
+      dataIndex: 'assigned',
+      render: function (text, record) {
+        if (text===true) {
+          return 'Assigned'
         }
-        else return (<ModalList
-          jobdata={jobData.job} />)
+        else return (<ModalList jobId={record.key} />)
       }
     },
     {
