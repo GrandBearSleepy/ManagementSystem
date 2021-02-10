@@ -3,12 +3,15 @@
   background-color: #424e56 ;
   color: rgb(220,220,220) ;
   font-family: 'Ubuntu',sans-serif;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .jobs .ant-table-thead > tr >th{
   color: white;
   background: #7db00e !important;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  
 }
 
 .jobs .ant-table-wrapper{
@@ -19,3 +22,9 @@
 font-family: 'Poppins', sans-serif;
 font-weight: 450;
 } 
+
+.ant-table-thead {
+  border-top-left-radius: 10px ;
+  border-top-right-radius: 10px ;
+}
+

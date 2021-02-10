@@ -85,6 +85,7 @@ export default function Cleaner() {
       title="Cleaner List"
        >
       <Table
+        className="cleaners-tab"
         scroll={{ x: 1500 }}
         sticky
         dataSource={cleanerData}

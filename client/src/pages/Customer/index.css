@@ -3,6 +3,8 @@
   background-color: #424e56 ;
   color: rgb(220,220,220) ;
   font-family: 'Ubuntu',sans-serif;
+  border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
 }
 .customer .ant-table-thead > tr >th{
   color: white;
@@ -12,10 +14,21 @@
 }
 
 .customer .ant-table-wrapper{
-  box-shadow: 10px 10px 5px #888888
+  box-shadow: 10px 10px 5px #888888;
+   
 }
 
 .customer .ant-table-tbody >tr >td{
 font-family: 'Poppins', sans-serif;
 font-weight: 450;
 } 
+
+.customer{
+   border-radius: 10px;
+}
+
+.customer-tab .ant-table-header{
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}
+

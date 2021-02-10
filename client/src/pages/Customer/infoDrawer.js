@@ -36,7 +36,6 @@ export default function InfoDrawer(props) {
         onClose={onClose}
         visible={visible}
       >
-        <h4 className="site-description-item-profile-p">Company Detail</h4>
         <Row>
           <Col
             className="com-name"

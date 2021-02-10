@@ -1,9 +1,10 @@
 import './App.less';
-import React, { useState } from 'react';
-import { Route, Switch,Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Frame } from './components'
 import LoginForm from './pages/LoginForm'
 import { adminRoutes } from './routes';
+import fire from './fire';
 const subMenus = adminRoutes.map(obj => obj.subMenus)
 const merged = [].concat.apply([], subMenus);
 console.log(merged)
@@ -11,36 +12,111 @@ console.log(merged)
 
 const App = () => {
 
-  const adminUser = {
-    username: 'admin',
-    password: 'admin123'
-  }
-
+  //************************* */
   const [user, setUser] = useState('');
-  const [error, setError] = useState('')
+  const [password, setPassord] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('')
 
-  const inputInfo = userInfo => {
-    console.log(userInfo)
-    if (userInfo.username === adminUser.username && userInfo.password === adminUser.password) {
-      console.log('login');
-      setUser(userInfo.username);
-      setError('');
-    }
-    else {
-      console.log('error');
-      setError('Details do not match!!');
-    }
+  const clearInputs = () => {
+    setEmail('');
+    setPassord('');
   }
-  const logout = () => {
-    setUser('');
+
+  const clearErrors = () => {
+    setEmailError('');
+    setPasswordError('');
   }
+
+
+  const handleLogin = () => {
+    clearErrors();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch (err.code) {
+          case 'auth/invalid-email':
+          case 'auth/user-disabled':
+          case 'auth/user-not-found':
+            setEmailError(err.message)
+            break;
+          case 'auth/wrong-password':
+            setPasswordError(err.message);
+            break
+
+        }
+      })
+  }
+  const handleSignup = () => {
+    clearErrors();
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch (err.code) {
+          case 'auth/email-already-in-use':
+          case 'auth/invalid-email':
+            setEmailError(err.message)
+            break;
+          case 'auth/weak-password':
+            setPasswordError(err.message);
+            break
+        }
+      })
+  };
+
+  const handleLogout = () => {
+    fire.auth().signOut();
+  }
+
+  const authListener = () => {
+    fire.auth().onAuthStateChanged(user => {
+      if (user) {
+        clearInputs()
+        setUser(user);
+      } else {
+        setUser('')
+      }
+    })
+  };
+
+  useEffect(() => {
+    authListener()
+  }, []);
+  //******************************** */
+
+  // const adminUser = {
+  //   username: 'admin',
+  //   password: 'admin123'
+  // }
+
+  // const [user, setUser] = useState('');
+  // const [error, setError] = useState('')
+
+  // const inputInfo = userInfo => {
+  //   console.log(userInfo)
+  //   if (userInfo.username === adminUser.username && userInfo.password === adminUser.password) {
+  //     console.log('login');
+  //     setUser(userInfo.username);
+  //     setError('');
+  //   }
+  //   else {
+  //     console.log('error');
+  //     setError('Details do not match!!');
+  //   }
+  // }
+  // const logout = () => {
+  //   setUser('');
+  // }
 
   return (
     <div className="app">
 
       {
-        (user !== '') ?
-          (<Frame logout={logout}>
+        (user) ?
+          (<Frame logout={handleLogout}>
             <Switch>
               {
                 merged.map(route => {
@@ -59,8 +135,14 @@ const App = () => {
             </Switch>
           </Frame >) :
           (<LoginForm
-            error={error}
-            inputInfo={inputInfo} />)
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassord={setPassord}
+            handleLogin={handleLogin}
+            emailError={emailError}
+            passwordError={passwordError}
+          />)
       }
     </div>
 

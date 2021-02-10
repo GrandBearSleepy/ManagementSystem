@@ -5,6 +5,7 @@ background-color: #364d79;
   margin: 15px;
   box-shadow: 10px 10px 5px #888888;
   transition: all 0.3s ease;
+  border-radius: 10px;
 }
 
 .job-card{
@@ -14,6 +15,7 @@ background-color: #364d79;
   margin: 15px;
   box-shadow: 10px 10px 5px #888888;
   transition: all 0.3s ease;
+  border-radius: 10px;
 }
 
 .cleaner{
@@ -23,6 +25,7 @@ background-color: #364d79;
   margin: 15px;
   box-shadow: 10px 10px 5px #888888;
   transition: all 0.3s ease;
+  border-radius: 10px;
 }
 .job-card:hover{
   transform: perspective(1px) scale(1.05);

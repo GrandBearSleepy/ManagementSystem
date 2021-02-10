@@ -8,9 +8,12 @@
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
   background-color: #424e56;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .cleaner-form .ant-card-body{
   background-color: #f4f4f4;
+  border-radius: 10px;
 }
 .cleaner-form .buttons{
   margin-left: -8px; margin-right: -8px; row-gap: 0px;
@@ -21,10 +24,12 @@
   margin-top: 10px;
   font-family: 'Poppins', sans-serif;
   box-shadow: 5px 5px 5px #888888;
+  border-radius: 10px;
 }
 
 .cleaner-form .ant-card{
   box-shadow: 8px 8px 5px #888888;
+  border-radius: 10px;
 }
 
 @media (max-width:1150px){

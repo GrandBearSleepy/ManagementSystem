@@ -12,7 +12,6 @@ export default function Work() {
       <Row gutter={16}>
         <Col span={8}>
           <Card
-   
             className="client"
             title="Clients"
             bordered={false}>

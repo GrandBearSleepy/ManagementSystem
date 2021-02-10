@@ -7,6 +7,8 @@
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
   background-color: #424e56;
+  border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
 }
 
 .job .ant-tabs-nav-list{
@@ -25,6 +27,7 @@
 
 .job .ant-card-body{
   background-color: #f4f4f4;
+  border-radius: 10px;
 }
 
 .job{
@@ -36,6 +39,7 @@
 
 .job .ant-card{
   box-shadow: 8px 8px 5px #888888;
+  border-radius: 10px;
 }
 
 .job button.ant-btn{

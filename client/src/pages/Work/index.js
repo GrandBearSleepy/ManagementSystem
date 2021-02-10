@@ -74,8 +74,8 @@ export default function Jobs() {
           return 'Assigned'
         }
         else return (<ModalList
-          getJobData={getJobData}
-          jobId={record.key} />)
+        getJobData={getJobData}
+        jobId={record.key} />)
       }
     },
     {
@@ -99,7 +99,9 @@ export default function Jobs() {
     <Card
       className="jobs"
       title="Job List">
-      <Table dataSource={jobData} columns={columns} />;
+      <Table
+        className="jobs-tab"
+        dataSource={jobData} columns={columns} />
     </Card>
   )
 }

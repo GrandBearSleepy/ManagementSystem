@@ -11,6 +11,8 @@
   top:50%;
   transform: translate3d(-50%,-50%,0);
   margin-top: -70px;
+ box-shadow: 5px 5px 5px #888888;
+  border-radius: 10px;
 }
 
 
@@ -18,11 +20,11 @@
   margin-top: 12px;
   font-family: 'Poppins', sans-serif;
   box-shadow: 5px 5px 5px #888888;
+  border-radius: 10px;
 }
 
 .login .password{
   margin-bottom: 0;
-  
 }
 .login .ant-card-head{
   font-family: 'Poppins', sans-serif;
@@ -30,7 +32,7 @@
   font-size: 24px;
   text-align: center;
   background-color: #424e56;
-}
-.login {
-  box-shadow: 5px 5px 5px #888888;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
 }

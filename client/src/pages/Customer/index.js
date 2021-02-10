@@ -92,7 +92,8 @@ export default function Customer() {
       className="customer"
       title="Customers List"
     >
-      <Table
+      <Table 
+        className="customer-tab"
         scroll={{ x: 1500 }}
         sticky
         dataSource={customerData}

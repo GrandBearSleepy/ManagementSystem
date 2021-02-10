@@ -23,7 +23,7 @@ menuOnClick = ({ key }) => {
   render() {
 
     const { logout } = this.props
-    console.log(logout)
+   
   return (
     <Layout style={{ minHeight: '100%' }}>
       <Sider

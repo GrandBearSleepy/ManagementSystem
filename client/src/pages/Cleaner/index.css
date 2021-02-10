@@ -3,6 +3,8 @@
   background-color: #424e56 ;
   color: rgb(220,220,220) ;
   font-family: 'Ubuntu',sans-serif;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .cleaners .ant-table-thead > tr >th{
   color: white;
@@ -21,3 +23,8 @@
 font-family: 'Poppins', sans-serif;
 font-weight: 450;
 } 
+
+.cleaners-tab .ant-table-header{
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}
