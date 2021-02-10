@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button, Table, Space, Popconfirm } from 'antd';
 import API from '../../utils/API';
 import './index.css'
+import InfoDrawer from './infoDrawer';
+
 
 export default function Cleaner() {
 
@@ -67,7 +69,7 @@ export default function Cleaner() {
       width: 100,
       render: (text, record) => (
         <Space size="middle">
-          <Button type="link" info>Edit</Button>
+          <InfoDrawer cleanerData={record} />
           <Popconfirm title="Sure to delete?" onConfirm={() => handlerDelete(record.key)}>
             <Button type="link" danger>Delete</Button>
           </Popconfirm>

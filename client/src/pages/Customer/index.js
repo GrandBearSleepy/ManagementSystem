@@ -2,32 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button, Table, Space, Popconfirm } from 'antd';
 import API from '../../utils/API';
 import './index.css'
+import InfoDrawer from './infoDrawer';
 
 
 export default function Customer() {
 
   const [customerData, setCustomerData] = useState([]);
-  const [visible, setVisible] = useState(false);
-
-  function showDrawer() {
-    setVisible(true);
-    console.log('clicked')
-  };
-
-  function onClose() {
-    setVisible(false);
-  };
-
 
   useEffect(() => {
     loadCustomers()
-    console.log(customerData)
   }, []);
+
 
   function loadCustomers() {
     API.getCustomers()
       .then(res => {
-        console.log(res.data)
         setCustomerData(res.data.map(x => ({ ...x, key: x._id })))
       }
       )
@@ -39,11 +28,15 @@ export default function Customer() {
   function handleDelete(id) {
     API.deleteCustomer(id)
       .then(res => {
-          console.log(res)
+        console.log(res)
         loadCustomers();
-        API.deleteJob({ $in: res.data.job })
-        .then(res=>{console.log(res)})
-        }
+        const jobIds = res.data.job
+        console.log(jobIds)
+        jobIds.map(id => {
+          API.deleteJob(id)
+          .then(res=>{console.log(res)})
+        })
+      }
       )
       .catch(err => {
         console.log(err)
@@ -83,11 +76,7 @@ export default function Customer() {
       width: 100,
       render: (text, record) => (
         <Space size="middle">
-          <Button
-            type="link"
-            info
-            onClick={showDrawer}
-          >More Info</Button>
+          <InfoDrawer customerData={record}/>
           <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
             <Button type="link" danger>Delete</Button>
           </Popconfirm>

@@ -7,20 +7,6 @@ import './index.css'
 export default function Jobs() {
 
   const [jobData, setJobData] = useState([]);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
 
   useEffect(() => {
     getJobData()
@@ -39,6 +25,7 @@ export default function Jobs() {
     API.deleteJob(id)
       .then(
         res => {
+          console.log(res)
           getJobData();
         }
       )
@@ -66,7 +53,9 @@ export default function Jobs() {
         if (text===true) {
           return 'Assigned'
         }
-        else return (<ModalList jobId={record.key} />)
+        else return (<ModalList
+          getJobData={getJobData}
+          jobId={record.key} />)
       }
     },
     {

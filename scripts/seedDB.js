@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// This file empties the Books collection and inserts the books below
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/managementDB"
@@ -77,10 +76,10 @@ const customerSeed = [
     email: 'askibm@au1.ibm.com',
   },
   {
-    companyName: 'IBM',
+    companyName: 'Oracle',
     address: 'Level 9 225 St Georges Terrace Perth WA',
     contactNum: '1300 366 386',
-    email: 'askibm@au1.ibm.com',
+    email: 'admin@oracl.com',
     title: 'Miss',
     firstName: 'Oracle ',
     lastName: 'Corporation',
@@ -89,7 +88,7 @@ const customerSeed = [
   }
 ]
 
-db.Customer.remove({})
+db.Customer.deleteMany({})
   .then(() => db.Customer.collection.insertMany(customerSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
@@ -100,7 +99,7 @@ db.Customer.remove({})
     process.exit(1);
   });
 
-db.Cleaner.remove({})
+db.Cleaner.deleteMany({})
   .then(() => db.Cleaner.collection.insertMany(cleanerSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");

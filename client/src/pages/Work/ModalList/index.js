@@ -6,6 +6,7 @@ import Selection from './Selection';
 
 
 export default function ModalList(props) {
+
   const [selectId, setSelectId] = useState('');
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -20,7 +21,7 @@ export default function ModalList(props) {
   };
 
   const handleOk = () => {
-    const { jobId } = props
+    const { jobId, getJobData } = props
     API.addJobToCleaner(selectId.id, jobId)
       .then(res => {
         message.success('Assigned')
@@ -31,7 +32,9 @@ export default function ModalList(props) {
           .catch(err => {
             console.log(err)
           })
+        getJobData()
       }
+        
       )
       .catch(err => {
         console.log(err)

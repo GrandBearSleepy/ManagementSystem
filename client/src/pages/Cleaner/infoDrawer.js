@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Drawer, List, Divider, Col, Row, Button } from 'antd';
+import { Drawer, Divider, Col, Row, Button } from 'antd';
+import JobTable from '../../components/JobTable'
 import './infoDrawer.css'
-import JobTable from '../../components/JobTable';
 
 const DescriptionItem = ({ title, content }) => (
   <div className="site-description-item-profile-wrapper">
@@ -12,7 +12,7 @@ const DescriptionItem = ({ title, content }) => (
 
 export default function InfoDrawer(props) {
 
-  const { customerData } = props
+  const { cleanerData } = props
   console.log(props)
   const [visible, setVisible] = useState(false);
   function showDrawer() {
@@ -36,17 +36,17 @@ export default function InfoDrawer(props) {
         onClose={onClose}
         visible={visible}
       >
-        <h4 className="site-description-item-profile-p">Company Detail</h4>
         <Row>
           <Col
-            className="com-name"
+            className="name"
             span={12}>
-            <DescriptionItem title="Comany Name" content={customerData.companyName} />
+            <DescriptionItem
+              title="Cleaner Name" content={cleanerData.fullName} />
           </Col>
         </Row>
         <Row>
           <Divider orientation="left">Job List</Divider>
-          <JobTable jobs={customerData.job}/>
+          <JobTable jobs={cleanerData.job} />
         </Row>
       </Drawer>
     </>
