@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Table, Popconfirm, Space, Button } from 'antd';
-import API from '../../utils/API'
-import ModalList from './ModalList'
+import API from '../../utils/API';
+import ModalList from './ModalList';
+import moment from 'moment';
 import './index.css'
 
 export default function Jobs() {
@@ -33,24 +34,43 @@ export default function Jobs() {
         console.log(err)
       })
   }
+
+  function formatTime(val) {
+    
+    return val ? moment(val).format('YYYY-MM-DD') : ''
+  }
+
+  function formatCurrency(val) {
+    return ('$'+val)
+  }
   const columns = [
     {
+
       title: 'Type',
       dataIndex: 'type',
     },
     {
+
+      title: 'Start Date',
+      dataIndex: 'startDate',
+      render:formatTime
+    },
+    {
+
       title: 'Description',
       dataIndex: 'description',
     },
     {
-      title: 'Price',
+      title: 'Price(AUD)',
       dataIndex: 'price',
+      render: formatCurrency
     },
     {
+      width: '100px',
       title: 'Assign',
       dataIndex: 'assigned',
       render: function (text, record) {
-        if (text===true) {
+        if (text === true) {
           return 'Assigned'
         }
         else return (<ModalList

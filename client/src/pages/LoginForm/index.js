@@ -7,24 +7,16 @@ import './index.css'
 
 export default function LoginForm(props) {
 
-  // console.log(props)
-  // console.log(test)
-
- 
-  // const isLogin = useContext(IsLogin)
-
-
-
   const onFinish = (values) => {
-    // console.log('Received values of form: ', values);
+
     props.inputInfo(values)
   };
 
 
   // console.log(userInfo)
   return (
-
-    <Card
+    <div className="login-wrapper">
+       <Card
       title='Management Login'
       className='login'
     >
@@ -59,6 +51,9 @@ export default function LoginForm(props) {
         </Form.Item>
       </Form>
     </Card>
+    </div>
+
+   
 
   )
 }

@@ -3,6 +3,9 @@ import { Table } from 'antd';
 
 export default function JobTable(props) {
   console.log(props)
+  function formatCurrency(val) {
+    return ('$' + val)
+  }
   const columns = [
     {
       width: '200px',
@@ -13,8 +16,9 @@ export default function JobTable(props) {
     },
     {
       width: '200px',
-      title: 'Price',
+      title: 'Price(AUD)',
       dataIndex: 'price',
+      render: formatCurrency,
       key: '_id',
     },
     {

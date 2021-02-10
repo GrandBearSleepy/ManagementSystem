@@ -86,8 +86,10 @@ export default function OneOff() {
       <h3>Price</h3>
       <Form.Item name="price">
         <InputNumber
-          min={0} step={0.1}
-          placeholder="00.0" />
+          formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+          parser={value => value.replace(/\$\s?|(,*)/g, '')}
+          min={0} step={10}
+          placeholder="00.00" />
       </Form.Item>
       <h3>Job Description</h3>
       <Form.Item name="description">
