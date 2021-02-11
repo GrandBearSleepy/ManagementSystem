@@ -24,6 +24,10 @@ import {
 
 export const mainRoutes = [
   {
+    pathname: '/',
+    component:LoginForm
+  },
+  {
     pathname: '/login',
     component: LoginForm
   },

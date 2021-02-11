@@ -12,23 +12,12 @@ ReactDOM.render(
 
   <Router>
     <Switch>
+      <Redirect to='/admin' from='/' exact />
       <Route path='/admin' render={(routerProps) => {
         return <App {...routerProps} />
       }} />
-      {
-        mainRoutes.map(route => {
-          return <Route
-            exact
-            key={route.pathname}
-            path={route.pathname}
-            component={route.component} />
-        })
-      }
-      <Redirect to='/login' from='/' exact />
       <Redirect to='/404' />
     </Switch>
   </Router>,
   document.getElementById('root')
 );
-
-

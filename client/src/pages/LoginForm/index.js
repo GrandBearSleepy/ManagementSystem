@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Card, Alert } from 'antd';
+import {  Input, Button, Card } from 'antd';
 import { UserOutlined, LockOutlined, } from '@ant-design/icons';
 import './index.css'
 
@@ -17,10 +17,6 @@ export default function LoginForm(props) {
     handleLogin,
     emailError,
     passwordError } = props;
-
-
-
-
 
   return (
     <div className="login-wrapper">
