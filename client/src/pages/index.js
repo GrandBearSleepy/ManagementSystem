@@ -9,7 +9,7 @@ const Customer = Loadable({
   loader: () => import('./Customer'),
   loading: Loading
 })
-const Login = Loadable({
+const LoginForm = Loadable({
   loader: () => import('./LoginForm'),
   loading: Loading
 })
@@ -41,7 +41,7 @@ export {
   Cleaner,
   Customer,
   NotFound,
-  Login,
+  LoginForm,
   Work,
   Home,
   InputFormCus,

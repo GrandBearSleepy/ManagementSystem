@@ -2,7 +2,7 @@ import {
   Cleaner,
   Customer,
   NotFound,
-  Login,
+  LoginForm,
   Work,
   Home,
   InputFormCus,
@@ -25,7 +25,7 @@ import {
 export const mainRoutes = [
   {
     pathname: '/login',
-    component: Login
+    component: LoginForm
   },
   {
     pathname: '/404',
