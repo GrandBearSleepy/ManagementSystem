@@ -12,8 +12,7 @@ ReactDOM.render(
 
   <Router>
     <Switch>
-      <Redirect to='/admin' from='/' exact />
-      <Route path='/admin' render={(routerProps) => {
+      <Route path='/' render={(routerProps) => {
         return <App {...routerProps} />
       }} />
       <Redirect to='/404' />

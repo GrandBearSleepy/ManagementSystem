@@ -39,12 +39,12 @@ export const mainRoutes = [
 
 export const adminRoutes = [
   {
-    pathname: '/admin',
+    pathname: '/',
     title: 'Home',
     icon: <HomeOutlined />,
     subMenus: [
       {
-        pathname: '/admin',
+        pathname: '/',
         title: 'Dashboard',
         icon: <HomeOutlined />,
         component: Home,
@@ -54,19 +54,19 @@ export const adminRoutes = [
     exact: true
   },
   {
-    pathname: '/admin/customer',
+    pathname: '/customer',
     component: Customer,
     title: 'Customer',
     icon: <UserOutlined />,
     subMenus: [
       {
-        pathname: '/admin/customer/addNew',
+        pathname: '/customer/addNew',
         title: 'Add Customer',
         icon: <UsergroupAddOutlined />,
         component: InputFormCus
       },
       {
-        pathname: '/admin/customer/viewAll',
+        pathname: '/customer/viewAll',
         title: 'All Customers',
         icon: <SolutionOutlined />,
         component: Customer
@@ -74,40 +74,40 @@ export const adminRoutes = [
     isNav: true
   },
   {
-    pathname: '/admin/cleaner',
+    pathname: '/cleaner',
     component: Cleaner,
     title: 'Cleaner',
     icon: <MehOutlined />,
     subMenus: [
       {
-        pathname: '/admin/cleaner/addNew',
+        pathname: '/cleaner/addNew',
         title: 'Add Cleaner',
         icon: <UsergroupAddOutlined />,
         component: InputFormCle,
       },
       {
         component: Cleaner,
-        pathname: '/admin/cleaner/viewAll',
+        pathname: '/cleaner/viewAll',
         title: 'All Cleaners',
         icon: <SolutionOutlined />
       }],
     isNav: true
   },
   {
-    pathname: '/admin/job',
+    pathname: '/job',
     component: Work,
     title: 'Job',
     icon: <RestOutlined />,
     subMenus: [
       {
-        pathname: '/admin/job/newJob',
+        pathname: '/job/newJob',
         title: 'Add New Job',
         component: InputFormJob,
         icon: <FileAddOutlined />
 
       },
       {
-        pathname: '/admin/job/viewAll',
+        pathname: '/job/viewAll',
         title: 'View All',
         component: Work,
         icon: <ReconciliationOutlined />
