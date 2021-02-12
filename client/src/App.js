@@ -85,31 +85,6 @@ const App = () => {
   useEffect(() => {
     authListener()
   }, []);
-  //******************************** */
-
-  // const adminUser = {
-  //   username: 'admin',
-  //   password: 'admin123'
-  // }
-
-  // const [user, setUser] = useState('');
-  // const [error, setError] = useState('')
-
-  // const inputInfo = userInfo => {
-  //   console.log(userInfo)
-  //   if (userInfo.username === adminUser.username && userInfo.password === adminUser.password) {
-  //     console.log('login');
-  //     setUser(userInfo.username);
-  //     setError('');
-  //   }
-  //   else {
-  //     console.log('error');
-  //     setError('Details do not match!!');
-  //   }
-  // }
-  // const logout = () => {
-  //   setUser('');
-  // }
 
   return (
     <div className="app">
@@ -133,7 +108,7 @@ const App = () => {
               }
               <Redirect to='/404' />
             </Switch>
-          </Frame >) :
+          </Frame >):
           (<LoginForm
             email={email}
             setEmail={setEmail}

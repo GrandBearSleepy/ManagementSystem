@@ -11,12 +11,7 @@ import './index.css';
 ReactDOM.render(
 
   <Router>
-    <Switch>
-      <Route path='/' render={(routerProps) => {
-        return <App {...routerProps} />
-      }} />
-      <Redirect to='/404' />
-    </Switch>
+    <App />
   </Router>,
   document.getElementById('root')
 );
