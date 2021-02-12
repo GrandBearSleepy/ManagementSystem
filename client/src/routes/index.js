@@ -111,7 +111,6 @@ export const adminRoutes = [
         title: 'View All',
         component: Work,
         icon: <ReconciliationOutlined />
-
       }],
     isNav: true
   }
