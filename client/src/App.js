@@ -89,8 +89,19 @@ const App = () => {
   return (
     <div className="app">
 
-      
-           <Frame logout={handleLogout}>
+      {
+        (!user) ?
+          (<LoginForm
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassord={setPassord}
+            handleLogin={handleLogin}
+            emailError={emailError}
+            passwordError={passwordError}
+          />)
+          :
+          (<Frame logout={handleLogout}>
             <Switch>
               {
                 merged.map(route => {
@@ -107,9 +118,8 @@ const App = () => {
               }
               <Redirect to='/404' />
             </Switch>
-          </Frame >
-          
-    
+          </Frame >)
+      }
     </div>
 
   )

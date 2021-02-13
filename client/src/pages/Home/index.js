@@ -5,7 +5,10 @@ import './index.css';
 
 export default function Work() {
 
-  const data=['Test','Total:']
+  const data = ['Test', 'Total:']
+  const cleanerData = ['Test', 'Total:']
+  const customerData = ['Test', 'Total:']
+  const jobData = ['Test', 'Total:']
 
   return (
     <div className="site-card-wrapper">
