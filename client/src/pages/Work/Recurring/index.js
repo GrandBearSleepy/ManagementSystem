@@ -45,7 +45,8 @@ export default function Recurring() {
       description: value.description,
       price: value.price,
       reapts: value.reapts,
-      asigned: false
+      asigned: false,
+      from: select.value
     }
     API.saveJob(newJob)
       .then(res => {

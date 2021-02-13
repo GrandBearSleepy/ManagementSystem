@@ -1,19 +1,37 @@
-import React from 'react';
-import { Card, Col, Row,List } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Card, Col, Row, List } from 'antd';
 import './index.css';
+import API from '../../utils/API';
+
+
 
 
 export default function Work() {
 
   const data = ['Test', 'Total: dfdsf']
   const cleanerData = ['Test', 'Total:']
-  const customerData = ['Test', 'Total:']
+  const  [customerData, setCustomerData] = useState([])
   const jobData = ['Test', 'Total:']
+
+  function getCustomers() {
+    API.getCustomers()
+      .then(res => {
+        console.log(res.data)
+        setCustomerData(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+  useEffect(() => {
+    getCustomers()
+  },[])
+
 
   return (
     <div className="site-card-wrapper">
       <Row gutter={16}>
-        <Col span={8}>
+        <Col xs={24} md={8} lg={8}>
           <Card
             className="client"
             title="Clients"
@@ -24,9 +42,9 @@ export default function Work() {
               dataSource={data}
               renderItem={item => <List.Item>{item}</List.Item>}
             />
-        </Card>
+          </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} md={8} lg={8}>
           <Card
             className="cleaner"
             title="Cleaners"
@@ -39,9 +57,9 @@ export default function Work() {
               dataSource={data}
               renderItem={item => <List.Item>{item}</List.Item>}
             />
-        </Card>
+          </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} md={8} lg={8}>
           <Card
             className="job-card" title="Jobs" bordered={false}>
             <List
@@ -52,9 +70,10 @@ export default function Work() {
               dataSource={data}
               renderItem={item => <List.Item>{item}</List.Item>}
             />
-        </Card>
+          </Card>
         </Col>
       </Row>
+ 
     </div>
   )
 }

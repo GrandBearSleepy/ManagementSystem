@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Drawer, List, Divider, Col, Row, Button } from 'antd';
+import { Drawer, Divider, Col, Row, Button } from 'antd';
 import './infoDrawer.css'
 import JobTable from '../../components/JobTable';
 
@@ -45,7 +45,7 @@ export default function InfoDrawer(props) {
         </Row>
         <Row>
           <Divider orientation="left">Job List</Divider>
-          <JobTable jobs={customerData.job}/>
+          <JobTable jobs={customerData.job} />
         </Row>
       </Drawer>
     </>

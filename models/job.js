@@ -7,7 +7,9 @@ const jobSchema = new Schema({
     reapts: { type: String },
     description: { type: String },
     price: { type: Number },
-    assigned: {type: Boolean ,default:false}
+    assigned: { type: Boolean, default: false },
+    from: { type: String },
+    to:{type:String}
 });
 
 const Job = mongoose.model('Job', jobSchema);

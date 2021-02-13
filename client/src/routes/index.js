@@ -50,7 +50,7 @@ export const adminRoutes = [
         component: Home,
         exact: true
       }],
-    isNav: true,
+    isNav: false,
     exact: true
   },
   {

@@ -27,6 +27,18 @@ export default function JobTable(props) {
       dataIndex: 'description',
       key: '_id',
     },
+    {
+      width: '200px',
+      title: 'From',
+      dataIndex: 'from',
+      key: '_id',
+    },
+    {
+      width: '200px',
+      title: 'Cleaner',
+      dataIndex: 'to',
+      key: '_id',
+    },
   ];
   return (
     <Table columns={columns} dataSource={props.jobs} />

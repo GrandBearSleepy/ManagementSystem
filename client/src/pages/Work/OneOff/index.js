@@ -44,7 +44,9 @@ export default function OneOff() {
       startDate: value.date,
       description: value.description,
       price: value.price,
-      reapts: value.reapts
+      reapts: value.reapts,
+      asigned: false,
+      from: select.value
     }
     console.log(newJob)
     API.saveJob(newJob)
