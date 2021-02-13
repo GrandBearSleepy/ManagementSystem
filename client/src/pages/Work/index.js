@@ -71,7 +71,7 @@ export default function Jobs() {
       dataIndex: 'assigned',
       render: function (text, record) {
         if (text === true) {
-          return 'Assigned'
+          return record.to
         }
         else return (<ModalList
         getJobData={getJobData}

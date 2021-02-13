@@ -8,15 +8,6 @@ background-color: #364d79;
   border-radius: 10px;
 }
 
-.job-card{
-  background-color: #7db00e;
-  color:#fff;
-  font-family: 'Poppins', sans-serif;
-  margin: 15px;
-  box-shadow: 10px 10px 5px #888888;
-  transition: all 0.3s ease;
-  border-radius: 10px;
-}
 
 .cleaner{
   background-color: #b36096;
@@ -27,6 +18,11 @@ background-color: #364d79;
   transition: all 0.3s ease;
   border-radius: 10px;
 }
+
+.client .ant-card-body li{
+  color: #fff;
+}
+
 .job-card:hover{
   transform: perspective(1px) scale(1.05);
   cursor: pointer;
@@ -38,6 +34,9 @@ background-color: #364d79;
 .cleaner:hover{
   transform: perspective(1px) scale(1.05);
   cursor: pointer;
+}
+.cleaner .ant-card-body li{
+  color: #fff;
 }
 .client .ant-card-head-title{
   font-size: 36px;
@@ -53,4 +52,8 @@ background-color: #364d79;
   font-size: 36px;
   color:#fff;
   font-family: 'Ubuntu',sans-serif;
+}
+
+.job-chart{
+  margin-top: 10px;
 }

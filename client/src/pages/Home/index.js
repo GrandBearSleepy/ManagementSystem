@@ -2,36 +2,55 @@ import React, { useEffect, useState } from 'react';
 import { Card, Col, Row, List } from 'antd';
 import './index.css';
 import API from '../../utils/API';
+import JobChart from './JobChart'
+import TodoChart from './TodoChart'
 
 
 
 
 export default function Work() {
 
-  const data = ['Test', 'Total: dfdsf']
-  const cleanerData = ['Test', 'Total:']
-  const  [customerData, setCustomerData] = useState([])
-  const jobData = ['Test', 'Total:']
+  
+  const [customerData, setCustomerData] = useState()
+  const [cleanerData, setCleanerData] = useState()
 
-  function getCustomers() {
+  const cuData = [`Activit:${customerData}` ,`Total: ${customerData}`]
+  const ClData = [`Activit: ${cleanerData}`,`Total: ${cleanerData}`]
+
+  function getCleanerNum() {
+    API.getCleaners()
+      .then(res => {
+        console.log(res.data.length)
+        const num = res.data.length
+        setCleanerData(num)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+
+  function getCustomerNum() {
     API.getCustomers()
       .then(res => {
-        console.log(res.data)
-        setCustomerData(res.data)
+        console.log(res.data.length)
+        const num = res.data.length
+        setCustomerData(num)
       })
       .catch(err => {
         console.log(err)
       })
   }
   useEffect(() => {
-    getCustomers()
-  },[])
+    getCustomerNum()
+    getCleanerNum()
+  }, [])
 
 
   return (
     <div className="site-card-wrapper">
       <Row gutter={16}>
-        <Col xs={24} md={8} lg={8}>
+        <Col xs={24} md={6} lg={6}>
           <Card
             className="client"
             title="Clients"
@@ -39,41 +58,29 @@ export default function Work() {
             <List
               size="large"
               bordered
-              dataSource={data}
+              dataSource={cuData}
               renderItem={item => <List.Item>{item}</List.Item>}
             />
           </Card>
         </Col>
-        <Col xs={24} md={8} lg={8}>
+        <Col xs={24} md={6} lg={6}>
           <Card
             className="cleaner"
             title="Cleaners"
             bordered={false}>
             <List
               size="large"
-              header={<div>Header</div>}
-              footer={<div>Footer</div>}
               bordered
-              dataSource={data}
+              dataSource={ClData}
               renderItem={item => <List.Item>{item}</List.Item>}
             />
           </Card>
         </Col>
-        <Col xs={24} md={8} lg={8}>
-          <Card
-            className="job-card" title="Jobs" bordered={false}>
-            <List
-              size="large"
-              header={<div>Header</div>}
-              footer={<div>Footer</div>}
-              bordered
-              dataSource={data}
-              renderItem={item => <List.Item>{item}</List.Item>}
-            />
-          </Card>
+        <Col xs={24} md={12} lg={12}>
+          <TodoChart className="sales-chart"/>
         </Col>
       </Row>
- 
+      <JobChart className="job-chart"/>
     </div>
   )
 }
