@@ -101,7 +101,8 @@ const App = () => {
             passwordError={passwordError}
           />)
           :
-          (<Frame logout={handleLogout}>
+          (<Frame
+            logout={handleLogout}>
             <Switch>
               {
                 merged.map(route => {

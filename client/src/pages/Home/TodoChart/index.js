@@ -13,6 +13,6 @@ export default function TodoChart() {
     });
   }
   return (
-    <Bar height={300} title="Monthle Report(TODO)" data={salesData} />
+    <Bar height={300} title="Monthly Report(TODO)" data={salesData} />
   )
 }

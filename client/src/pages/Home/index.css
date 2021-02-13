@@ -23,18 +23,6 @@ background-color: #364d79;
   color: #fff;
 }
 
-.job-card:hover{
-  transform: perspective(1px) scale(1.05);
-  cursor: pointer;
-}
-.client:hover{
-  transform: perspective(1px) scale(1.05);
-  cursor: pointer;
-}
-.cleaner:hover{
-  transform: perspective(1px) scale(1.05);
-  cursor: pointer;
-}
 .cleaner .ant-card-body li{
   color: #fff;
 }
