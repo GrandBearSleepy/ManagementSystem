@@ -14,8 +14,8 @@ export default function Work() {
   const [customerData, setCustomerData] = useState()
   const [cleanerData, setCleanerData] = useState()
 
-  const cuData = [`Activit:${customerData}` ,`Total: ${customerData}`]
-  const ClData = [`Activit: ${cleanerData}`,`Total: ${cleanerData}`]
+  const cuData = [`Active:${customerData}` ,`Total: ${customerData}`]
+  const ClData = [`Active: ${cleanerData}`,`Total: ${cleanerData}`]
 
   function getCleanerNum() {
     API.getCleaners()

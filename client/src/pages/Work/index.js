@@ -45,7 +45,10 @@ export default function Jobs() {
   }
   const columns = [
     {
-
+      title: 'Client Name',
+      dataIndex: 'from',
+    },
+    {
       title: 'Type',
       dataIndex: 'type',
     },

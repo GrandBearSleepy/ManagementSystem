@@ -26,9 +26,12 @@ export default function Cleaner() {
   }
   function handlerDelete(id) {
     API.deleteCleaner(id)
-      .then(
-        res => {
-          loadCleaners();
+      .then(res => {
+        loadCleaners();
+        const jobIds = res.data.job
+        jobIds.map(id => {
+          API.updateJob(id,{assigned:false,to:''})
+        })
         }
       )
       .catch(err => {

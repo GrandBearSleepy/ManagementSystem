@@ -77,7 +77,7 @@ export default function Customer() {
       render: (text, record) => (
         <Space size="middle">
           <InfoDrawer customerData={record}/>
-          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+          <Popconfirm title="Sure to delete? If confirm, all related jobs will be deleted" onConfirm={() => handleDelete(record.key)}>
             <Button type="link" danger>Delete</Button>
           </Popconfirm>
         </Space>

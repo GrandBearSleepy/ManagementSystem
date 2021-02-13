@@ -44,9 +44,11 @@ export default function InputForm() {
     console.log(newCustomer)
     API.saveCustomer(newCustomer)
       .then(res => {
+        console.log(res)
         return (
           message.success('Saved')
         )
+      
       })
       .catch((err) => console.log(err.response))
     console.log(value)
