@@ -25,7 +25,7 @@ import {
 export const mainRoutes = [
   {
     pathname: '/',
-    component:LoginForm
+    component: LoginForm
   },
   {
     pathname: '/login',
@@ -113,5 +113,21 @@ export const adminRoutes = [
         icon: <ReconciliationOutlined />
       }],
     isNav: true
-  }
+  },
+  {
+    pathname: '/more',
+    title: 'More',
+    icon: <HomeOutlined />,
+    subMenus: [
+      {
+        pathname: '/more/test',
+        title: 'Dashboard',
+        icon: <HomeOutlined />,
+        component: Home,
+        exact: true
+      }],
+    isNav: true,
+    exact: true
+  },
+
 ]

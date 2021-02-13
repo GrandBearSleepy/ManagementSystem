@@ -5,7 +5,7 @@ import './index.css';
 
 export default function Work() {
 
-  const data = ['Test', 'Total:']
+  const data = ['Test', 'Total: dfdsf']
   const cleanerData = ['Test', 'Total:']
   const customerData = ['Test', 'Total:']
   const jobData = ['Test', 'Total:']
@@ -20,8 +20,6 @@ export default function Work() {
             bordered={false}>
             <List
               size="large"
-              header={<div>Header</div>}
-              footer={<div>Footer</div>}
               bordered
               dataSource={data}
               renderItem={item => <List.Item>{item}</List.Item>}
