@@ -29,13 +29,14 @@ export default function JobTable(props) {
     },
     {
       width: '200px',
+      title: 'From',
+      dataIndex: 'from',
+      key: '_id',
+    },
+    {
+      width: '200px',
       title: 'Cleaner',
       dataIndex: 'to',
-      render: function (text, record) {
-        if (text) {
-          return text
-        } else {return 'Not assigned yet'}
-      },
       key: '_id',
     },
   ];

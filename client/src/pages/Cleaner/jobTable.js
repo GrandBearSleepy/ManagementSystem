@@ -1,7 +1,13 @@
 import React from 'react';
 import { Table } from 'antd';
+import moment from 'moment';
 
 export default function JobTable(props) {
+
+
+  function formatTime(val) {
+    return val ? moment(val).format('YYYY-MM-DD') : ''
+  }
   console.log(props)
   const columns = [
     {
@@ -22,6 +28,19 @@ export default function JobTable(props) {
       title: 'Details',
       dataIndex: 'description',
       key: '_id',
+    },
+    {
+      width: '200px',
+      title: 'Client Name',
+      dataIndex: 'from',
+      key: '_id',
+    },
+    {
+      width: '200px',
+      title: 'Start Date',
+      dataIndex: 'startDate',
+      key: '_id',
+      render: formatTime
     },
   ];
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Drawer, Divider, Col, Row, Button } from 'antd';
-import JobTable from '../../components/JobTable'
+import JobTable from './jobTable'
 import './infoDrawer.css'
 
 const DescriptionItem = ({ title, content }) => (

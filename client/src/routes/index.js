@@ -7,7 +7,8 @@ import {
   Home,
   InputFormCus,
   InputFormCle,
-  InputFormJob
+  InputFormJob,
+  Buiding
 } from '../pages';
 
 import {
@@ -121,9 +122,9 @@ export const adminRoutes = [
     subMenus: [
       {
         pathname: '/more/test',
-        title: 'Dashboard',
+        title: 'report',
         icon: <HomeOutlined />,
-        component: Home,
+        component: Buiding,
         exact: true
       }],
     isNav: true,

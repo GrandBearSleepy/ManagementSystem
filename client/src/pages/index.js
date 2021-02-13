@@ -37,6 +37,10 @@ const InputFormJob = Loadable({
   loader: () => import('./Work/inputForm'),
   loading: Loading
 })
+const Buiding = Loadable({
+  loader: () => import('./Buiding'),
+  loading: Loading
+})
 export {
   Cleaner,
   Customer,
@@ -46,5 +50,6 @@ export {
   Home,
   InputFormCus,
   InputFormCle,
-  InputFormJob
+  InputFormJob,
+  Buiding
 }

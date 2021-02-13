@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Drawer, Divider, Col, Row, Button } from 'antd';
 import './infoDrawer.css'
-import JobTable from '../../components/JobTable';
+import JobTable from '../../components/JobTable'
 
 const DescriptionItem = ({ title, content }) => (
   <div className="site-description-item-profile-wrapper">
