@@ -14,16 +14,13 @@ const menus = adminRoutes.filter(route => route.isNav = true);
 @withRouter
 class Frame extends Component {
 
-  
 menuOnClick = ({ key }) => {
   this.props.history.push(key)
   console.log(this.props.children)
 }
 
   render() {
-
-    const { logout } = this.props
-   
+    const { logout } = this.props 
   return (
     <Layout style={{ minHeight: '100%' }}>
       <Sider
@@ -37,7 +34,6 @@ menuOnClick = ({ key }) => {
         }}
       >
         <Logo/>
-
         <Menu
           onClick={this.menuOnClick}
           mode="inline"

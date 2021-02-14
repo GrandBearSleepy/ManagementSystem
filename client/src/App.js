@@ -122,7 +122,6 @@ const App = () => {
           </Frame >)
       }
     </div>
-
   )
 }
 export default App;

@@ -22,7 +22,7 @@ export default function InputForm() {
       lastName: value.lastName,
       address: value.street1
         + ' '
-        + (value.street2) ? value.street2 : ''
+        + (value.street2) 
         + ' '
         + value.cityName
         + ' '
