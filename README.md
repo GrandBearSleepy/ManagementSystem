@@ -17,9 +17,9 @@ It can manage clients, cleaners and jobs records
 
 ## Front End:
 
-*React
-*Ant Design
-*Firebase authatication
+ * React
+ * Ant Design
+ * Firebase authatication
 
 ## Back End:
 
