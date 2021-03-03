@@ -36,7 +36,6 @@ export default function Jobs() {
   }
 
   function formatTime(val) {
-    
     return val ? moment(val).format('YYYY-MM-DD') : ''
   }
 

@@ -130,5 +130,4 @@ export const adminRoutes = [
     isNav: true,
     exact: true
   },
-
 ]

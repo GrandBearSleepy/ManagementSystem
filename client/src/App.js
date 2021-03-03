@@ -5,7 +5,7 @@ import { Frame } from './components'
 import LoginForm from './pages/LoginForm'
 import { adminRoutes } from './routes';
 import fire from './fire';
-const subMenus = adminRoutes.map(obj => obj.subMenus)
+const subMenus = adminRoutes.map(each => each.subMenus)
 const merged = [].concat.apply([], subMenus);
 console.log(merged)
 
@@ -112,6 +112,7 @@ const App = () => {
                       key={route.pathname}
                       path={route.pathname}
                       render={(routerProps) => {
+                        console.log({...routerProps})
                         return <route.component {...routerProps} />
                       }} />
                   )

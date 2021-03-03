@@ -5,6 +5,7 @@ module.exports = {
     db.Customer
       .find(req.query)
       .populate('job')
+      .populate('invoice')
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -13,6 +14,7 @@ module.exports = {
     db.Customer
       .findById(req.params.id)
       .populate('job')
+      .populate('invoice')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

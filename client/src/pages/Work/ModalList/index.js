@@ -12,6 +12,7 @@ export default function ModalList(props) {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [cleanerData, setCleanerData] = useState([]);
 
+  //load cleaner data after component mounted
   useEffect(() => {
     loadCleaners()
   }, []);
@@ -20,6 +21,7 @@ export default function ModalList(props) {
     setVisible(true);
   };
 
+  //assign job to cleaner function
   const handleOk = () => {
     const { jobId, getJobData } = props
     API.addJobToCleaner(selectId.id, jobId)
@@ -51,7 +53,11 @@ export default function ModalList(props) {
       .then(res => {
         setCleanerData(res.data)
       })
-  }
+      .catch(err => {
+        console.log(err)
+      })
+  };
+
   function handleSelectChange(selected) {
     console.log(selected)
     setSelectId({
